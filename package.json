@@ -46,7 +46,7 @@
     "build": "react-scripts --max_old_space_size=4096 build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm dedupe && npm i && npm install && npm start"
   },
   "eslintConfig": {
     "extends": [
