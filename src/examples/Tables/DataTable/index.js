@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 import { useMemo, useEffect, useState } from "react";
 
 // prop-types is a library for typechecking of props
-import PropTypes, { array } from "prop-types";
+import PropTypes from "prop-types";
 
 // react-table components
 import { useTable, usePagination, useGlobalFilter, useAsyncDebounce, useSortBy } from "react-table";
