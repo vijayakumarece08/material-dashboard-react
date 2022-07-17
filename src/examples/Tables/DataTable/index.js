@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 import { useMemo, useEffect, useState } from "react";
 
 // prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
+import PropTypes, { array } from "prop-types";
 
 // react-table components
 import { useTable, usePagination, useGlobalFilter, useAsyncDebounce, useSortBy } from "react-table";
@@ -288,7 +288,7 @@ DataTable.propTypes = {
   ]),
   canSearch: PropTypes.bool,
   showTotalEntries: PropTypes.bool,
-  table: PropTypes.objectOf(PropTypes.array).isRequired,
+  table: PropTypes.objectOf(Array).isRequired,
   pagination: PropTypes.shape({
     variant: PropTypes.oneOf(["contained", "gradient"]),
     color: PropTypes.oneOf([
