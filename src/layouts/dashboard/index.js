@@ -33,8 +33,8 @@ import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 
 // Dashboard components
-import Projects from "layouts/dashboard/components/Projects";
-import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
+// import Projects from "layouts/dashboard/components/Projects";
+// import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
@@ -112,11 +112,27 @@ function Dashboard() {
                   color="info"
                   title="Voltage (Mean)"
                   description={{
-                  line1: <>Min Voltage: <strong>228V</strong></>,
-                  line2: <>Max Voltage: <strong>238V</strong></>,
-                  line3: <>Violation Count: 3 (<strong>+6%</strong>), 2 (<strong>-6%</strong>)</>,
-                  line4: <>Voltage THD: <strong>2.3%</strong></>,
-                }}
+                    line1: (
+                      <>
+                        Min Voltage: <strong>228V</strong>
+                      </>
+                    ),
+                    line2: (
+                      <>
+                        Max Voltage: <strong>238V</strong>
+                      </>
+                    ),
+                    line3: (
+                      <>
+                        Violation Count: 3 (<strong>+6%</strong>), 2 (<strong>-6%</strong>)
+                      </>
+                    ),
+                    line4: (
+                      <>
+                        Voltage THD: <strong>2.3%</strong>
+                      </>
+                    ),
+                  }}
                   date="Updated 4 min ago"
                   chart={reportsBarChartData}
                 />
@@ -128,9 +144,9 @@ function Dashboard() {
                   color="success"
                   title="Current (Mean)"
                   description={
-                    <>                  
-                      (<strong>65%</strong>) of rated current <br></br>
-                      Max Current: <strong>720A</strong> @ Jun-28 09:40-09:50<br></br>
+                    <>
+                      (<strong>65%</strong>) of rated current {<br></br>}
+                      Max Current: <strong>720A</strong> @ Jun-28 09:40-09:50 {<br></br>}
                       Current THD: <strong>7.5%</strong>
                     </>
                   }

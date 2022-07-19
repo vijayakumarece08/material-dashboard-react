@@ -33,7 +33,7 @@ import MDTypography from "components/MDTypography";
 // ReportsBarChart configurations
 import configs from "examples/Charts/BarCharts/ReportsBarChart/configs";
 
-function ReportsBarChart({ color, title, description, description2, date, chart }) {
+function ReportsBarChart({ color, title, description, date, chart }) {
   const { data, options } = configs(chart.labels || [], chart.datasets || {});
 
   return (
@@ -91,7 +91,7 @@ function ReportsBarChart({ color, title, description, description2, date, chart 
 ReportsBarChart.defaultProps = {
   color: "dark",
   description: "",
-  description2: "",
+  // description2: "",
 };
 
 // Typechecking props for the ReportsBarChart
@@ -99,7 +99,7 @@ ReportsBarChart.propTypes = {
   color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "dark"]),
   title: PropTypes.string.isRequired,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  description2: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  // description2: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   date: PropTypes.string.isRequired,
   chart: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.array, PropTypes.object])).isRequired,
 };
