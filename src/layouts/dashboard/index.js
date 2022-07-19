@@ -145,8 +145,8 @@ function Dashboard() {
                   title="Current (Mean)"
                   description={
                     <>
-                      (<br><strong>65%</strong>) of rated current </br>
-                      <br>Max Current: <strong>720A</strong> @ Jun-28 09:40-09:50 </br>
+                      (<strong>65%</strong>) of rated current <br/>
+                      Max Current: <strong>720A</strong> @ Jun-28 09:40-09:50 <br/>
                       Current THD: <strong>7.5%</strong>
                     </>
                   }
@@ -162,8 +162,8 @@ function Dashboard() {
                   title="Power (Mean)"
                   description={
                     <>                  
-                      <br>Max Power: <strong>165kW</strong>  </br>
-                      <br>Max Ramp Up: <strong>17%</strong> (L1) @ Jun-28 09:40-09:50</br>
+                      Max Power: <strong>165kW</strong>  <br/>
+                      Max Ramp Up: <strong>17%</strong> (L1) @ Jun-28 09:40-09:50<br/>
                       Max Ramp Down: <strong>21%</strong> (L2) @ Jun-28 09:40-09:50
                     </>
                   }
