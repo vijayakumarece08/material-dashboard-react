@@ -33,7 +33,7 @@ import MDTypography from "components/MDTypography";
 // ReportsBarChart configurations
 import configs from "examples/Charts/BarCharts/ReportsBarChart/configs";
 
-function ReportsBarChart({ color, title, description, date, chart }) {
+function ReportsBarChart({ color, title, description, description2, date, chart }) {
   const { data, options } = configs(chart.labels || [], chart.datasets || {});
 
   return (
@@ -61,7 +61,16 @@ function ReportsBarChart({ color, title, description, date, chart }) {
             {title}
           </MDTypography>
           <MDTypography component="div" variant="button" color="text" fontWeight="light">
-            {description}
+            {description.line1}
+          </MDTypography>
+          <MDTypography component="div" variant="button" color="text" fontWeight="light">
+            {description.line2}
+          </MDTypography>
+          <MDTypography component="div" variant="button" color="text" fontWeight="light">
+            {description.line3}
+          </MDTypography>
+          <MDTypography component="div" variant="button" color="text" fontWeight="light">
+            {description.line4}
           </MDTypography>
           <Divider />
           <MDBox display="flex" alignItems="center">
@@ -82,6 +91,7 @@ function ReportsBarChart({ color, title, description, date, chart }) {
 ReportsBarChart.defaultProps = {
   color: "dark",
   description: "",
+  description2: "",
 };
 
 // Typechecking props for the ReportsBarChart
@@ -89,6 +99,7 @@ ReportsBarChart.propTypes = {
   color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "dark"]),
   title: PropTypes.string.isRequired,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  description2: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   date: PropTypes.string.isRequired,
   chart: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.array, PropTypes.object])).isRequired,
 };

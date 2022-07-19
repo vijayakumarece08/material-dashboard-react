@@ -26,6 +26,7 @@ import Footer from "examples/Footer";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
+import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
 
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
@@ -48,8 +49,8 @@ function Dashboard() {
               <ComplexStatisticsCard
                 color="dark"
                 icon="weekend"
-                title="Vijay Bookings"
-                count={281}
+                title="Consumption (Monthly)"
+                count="15898 Kwh"
                 percentage={{
                   color: "success",
                   amount: "+55%",
@@ -62,7 +63,7 @@ function Dashboard() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 icon="leaderboard"
-                title="Today's Users"
+                title="Energy (Cumulative)"
                 count="2,300"
                 percentage={{
                   color: "success",
@@ -77,8 +78,8 @@ function Dashboard() {
               <ComplexStatisticsCard
                 color="success"
                 icon="store"
-                title="Revenue"
-                count="34k"
+                title="Power factor"
+                count="0.97"
                 percentage={{
                   color: "success",
                   amount: "+1%",
@@ -92,8 +93,8 @@ function Dashboard() {
               <ComplexStatisticsCard
                 color="primary"
                 icon="person_add"
-                title="Followers"
-                count="+91"
+                title="Temperature"
+                count="28C"
                 percentage={{
                   color: "success",
                   amount: "",
@@ -109,9 +110,14 @@ function Dashboard() {
               <MDBox mb={3}>
                 <ReportsBarChart
                   color="info"
-                  title="website views"
-                  description="Last Campaign Performance"
-                  date="campaign sent 2 days ago"
+                  title="Voltage (Mean)"
+                  description={{
+                  line1: <>Min Voltage: <strong>228V</strong></>,
+                  line2: <>Max Voltage: <strong>238V</strong></>,
+                  line3: <>Violation Count: 3 (<strong>+6%</strong>), 2 (<strong>-6%</strong>)</>,
+                  line4: <>Voltage THD: <strong>2.3%</strong></>,
+                }}
+                  date="Updated 4 min ago"
                   chart={reportsBarChartData}
                 />
               </MDBox>
@@ -120,10 +126,12 @@ function Dashboard() {
               <MDBox mb={3}>
                 <ReportsLineChart
                   color="success"
-                  title="daily sales"
+                  title="Current (Mean)"
                   description={
-                    <>
-                      (<strong>+15%</strong>) increase in today sales.
+                    <>                  
+                      (<strong>65%</strong>) of rated current <br></br>
+                      Max Current: <strong>720A</strong> @ Jun-28 09:40-09:50<br></br>
+                      Current THD: <strong>7.5%</strong>
                     </>
                   }
                   date="updated 4 min ago"
@@ -135,8 +143,14 @@ function Dashboard() {
               <MDBox mb={3}>
                 <ReportsLineChart
                   color="dark"
-                  title="completed tasks"
-                  description="Last Campaign Performance"
+                  title="Power (Mean)"
+                  description={
+                    <>                  
+                      Max Power: <strong>165kW</strong>  <br></br>
+                      Max Ramp Up: <strong>17%</strong> (L1) @ Jun-28 09:40-09:50<br></br>
+                      Max Ramp Down: <strong>21%</strong> (L2) @ Jun-28 09:40-09:50<br></br>
+                    </>
+                  }
                   date="just updated"
                   chart={tasks}
                 />
@@ -144,16 +158,58 @@ function Dashboard() {
             </Grid>
           </Grid>
         </MDBox>
-        <MDBox>
+        { <MDBox>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={8}>
-              <Projects />
+            <Grid item xs={12} md={6} lg={2}>
+            <DefaultInfoCard
+                    icon="account_balance"
+                    title="Kopitiam"
+                    description="Feeder 1"
+                    value="120 kW"
+                  />
             </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <OrdersOverview />
+            <Grid item xs={12} md={6} lg={2}>
+            <DefaultInfoCard
+                    icon="account_balance"
+                    title="Baggage"
+                    description="Feeder 2"
+                    value="223 kW"
+                  />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+            <DefaultInfoCard
+                    icon="account_balance"
+                    title="4Fingers"
+                    description="Feeder 3"
+                    value="750 kW"
+                  />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+            <DefaultInfoCard
+                    icon="account_balance"
+                    title="Load Centre"
+                    description="Feeder 4"
+                    value="112 kW"
+                  />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+            <DefaultInfoCard
+                    icon="account_balance"
+                    title="NA"
+                    description="Feeder 5"
+                    value="0 kW"
+                  />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+            <DefaultInfoCard
+                    icon="account_balance"
+                    title="NA"
+                    description="Feeder 6"
+                    value="0 kW"
+                  />
             </Grid>
           </Grid>
-        </MDBox>
+        </MDBox> }
       </MDBox>
       <Footer />
     </DashboardLayout>
