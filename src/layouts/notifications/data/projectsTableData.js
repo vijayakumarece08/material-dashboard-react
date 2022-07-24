@@ -101,6 +101,78 @@ export default function data() {
           </MDTypography>
         ),
       },
+      {
+        deivces: <Project  image ={visnet} name="NYP-LV-2"  />,
+        alaram: (
+        <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
+            High Voltage
+          </MDTypography>
+        ),
+        status: (
+          <MDBox ml={-1}>
+            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+          </MDBox>
+        ),
+        datetime: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            23/06/2022 9.35am
+          </MDTypography>
+        ),
+      },
+      {
+        deivces: <Project  image ={visnet2} name="NYP-LV-3"  />,
+        alaram: (
+        <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
+            High Current {">"} 75%
+          </MDTypography>
+        ),
+        status: (
+          <MDBox ml={-1}>
+            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+          </MDBox>
+        ),
+        datetime: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            23/06/2022 9.35am
+          </MDTypography>
+        ),
+      },
+      {
+        deivces: <Project  image ={visnet} name="NYP-LV-4"  />,
+        alaram: (
+        <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
+            High Voltage
+          </MDTypography>
+        ),
+        status: (
+          <MDBox ml={-1}>
+            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+          </MDBox>
+        ),
+        datetime: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            23/06/2022 9.35am
+          </MDTypography>
+        ),
+      },
+      {
+        deivces: <Project  image ={visnet2} name="NYP-LV-5"  />,
+        alaram: (
+        <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
+            High Current {">"} 75%
+          </MDTypography>
+        ),
+        status: (
+          <MDBox ml={-1}>
+            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+          </MDBox>
+        ),
+        datetime: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            23/06/2022 9.35am
+          </MDTypography>
+        ),
+      },
     ],
   };
 }

@@ -53,7 +53,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Authors Table
+                  List of Devices
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
@@ -80,7 +80,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Projects Table
+                  Alaram (Last 5)
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
