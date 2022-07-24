@@ -45,11 +45,11 @@ function DefaultInfoCard({ color, icon, title, description, value }) {
         </MDBox>
       </MDBox>
       <MDBox pb={2} px={2} textAlign="center" lineHeight={1.25}>
-        <MDTypography variant="h6" fontWeight="medium" textTransform="capitalize">
+        <MDTypography  variant="h6" fontWeight="medium" textTransform="capitalize">
           {title}
         </MDTypography>
         {description && (
-          <MDTypography variant="caption" color="text" fontWeight="regular">
+          <MDTypography href ="#" variant="caption" color="text" fontWeight="regular">
             {description}
           </MDTypography>
         )}
@@ -75,7 +75,10 @@ DefaultInfoCard.defaultProps = {
 DefaultInfoCard.propTypes = {
   color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "dark"]),
   icon: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
+  title:PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    route: PropTypes.string.isRequired,
+  }).isRequired,
   description: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

@@ -38,7 +38,8 @@ Coded by www.creative-tim.com
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
-// import Billing from "layouts/billing";
+import Billing from "layouts/billing";
+import Feeders from "layouts/feeders";
 // import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
 // import Profile from "layouts/profile";
@@ -98,22 +99,14 @@ const routes = [
     route: "/Multi-Plot",
     component: <Dashboard />,
   },
-  // {
-  //   type: "collapse",
-  //   name: "Billing",
-  //   key: "billing",
-  //   icon: <Icon fontSize="small">receipt_long</Icon>,
-  //   route: "/billing",
-  //   component: <Billing />,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "RTL",
-  //   key: "rtl",
-  //   icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
-  //   route: "/rtl",
-  //   component: <RTL />,
-  // },
+  {
+    type: "collapse",
+    name: "Billing",
+    key: "billing",
+    icon: <Icon fontSize="small">receipt_long</Icon>,
+    route: "/billing",
+    component: <Billing />,
+  },
   {
     type: "collapse",
     name: "Notifications",
@@ -122,14 +115,6 @@ const routes = [
     route: "/notifications",
     component: <Notifications />,
   },
-  // {
-  //   type: "collapse",
-  //   name: "Profile",
-  //   key: "profile",
-  //   icon: <Icon fontSize="small">person</Icon>,
-  //   route: "/profile",
-  //   component: <Profile />,
-  // },
   {
     type: "collapse",
     name: "Sign In",
@@ -146,6 +131,30 @@ const routes = [
     route: "/authentication/sign-up",
     component: <SignUp />,
   },
+  {
+    type: "feeders",
+    name: "feeder1",
+    key: "feeder1",
+    icon: <Icon fontSize="small">receipt_long</Icon>,
+    route: "/feeders",
+    component: <Feeders />,
+  },
+    // {
+  //   type: "collapse",
+  //   name: "RTL",
+  //   key: "rtl",
+  //   icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
+  //   route: "/rtl",
+  //   component: <RTL />,
+  // },
+   // {
+  //   type: "collapse",
+  //   name: "Profile",
+  //   key: "profile",
+  //   icon: <Icon fontSize="small">person</Icon>,
+  //   route: "/profile",
+  //   component: <Profile />,
+  // },
 ];
 
 export default routes;

@@ -20,6 +20,7 @@ import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 
 // Material Dashboard 2 React example components
+// import MDTypography from "components/MDTypography";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
@@ -180,7 +181,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="Kopitiam"
-                    description="Feeder 1"
+                    description={<a href="/feeders"><p>Feeder 1</p> </a>}
                     value="120 kW"
                   />
             </Grid>
@@ -188,7 +189,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="Baggage"
-                    description="Feeder 2"
+                    description={<a href="/feeders"><p>Feeder 2</p> </a>}
                     value="223 kW"
                   />
             </Grid>
@@ -196,7 +197,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="4Fingers"
-                    description="Feeder 3"
+                    description={<a href="/feeders"><p>Feeder 3</p> </a>}
                     value="750 kW"
                   />
             </Grid>
@@ -204,7 +205,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="Load Centre"
-                    description="Feeder 4"
+                    description={<a href="/feeders"><p>Feeder 4</p> </a>}
                     value="112 kW"
                   />
             </Grid>
@@ -212,7 +213,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="NA"
-                    description="Feeder 5"
+                    description={<a href="/feeders"><p>Feeder 5</p> </a>}
                     value="0 kW"
                   />
             </Grid>
@@ -220,9 +221,9 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="NA"
-                    description="Feeder 6"
+                    description= {<a href="/feeders"><p>Feeder 6</p> </a>}
                     value="0 kW"
-                  />
+                  />            
             </Grid>
           </Grid>
         </MDBox> 
