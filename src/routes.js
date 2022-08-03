@@ -38,7 +38,7 @@ Coded by www.creative-tim.com
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
-import Billing from "layouts/billing";
+// import Billing from "layouts/billing";
 import Feeders from "layouts/feeders";
 // import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
@@ -98,14 +98,6 @@ const routes = [
     icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/Multi-Plot",
     component: <Dashboard />,
-  },
-  {
-    type: "collapse",
-    name: "Billing",
-    key: "billing",
-    icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/billing",
-    component: <Billing />,
   },
   {
     type: "collapse",

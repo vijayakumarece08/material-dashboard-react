@@ -25,13 +25,15 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 // import MasterCard from "examples/Cards/MasterCard";
 // import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
-import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
+import MonthlyData from "layouts/feeders/components/MonthlyData";
 // import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
 // Billing page components
 // import PaymentMethod from "layouts/billing/components/PaymentMethod";
 // import Invoices from "layouts/billing/components/Invoices";
-import BillingInformation from "layouts/billing/components/BillingInformation";
-import Transactions from "layouts/billing/components/Transactions";
+import FaultImpedence from "layouts/feeders/components/FaultImpedence";
+import FaultLocation from "layouts/feeders/components/FaultLocation";
+import Apex from "examples/Charts/Boxplot/Apexchart";
+import AvgPower from "layouts/feeders/components/AveragePower"
 
 // Data
 import reportsLineChartData from "layouts/feeders/data/reportsLineChartData";
@@ -40,27 +42,62 @@ function Feeders() {
   const { sales } = reportsLineChartData;
   return (
     <DashboardLayout>
-      <DashboardNavbar absolute isMini />
+      <DashboardNavbar />
+      {/* <DashboardNavbar absolute isMini /> */}
       <MDBox mt={8}>
         <MDBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={12}>
             <MDBox mb={3}>
-            <ReportsLineChart
-                  color="dark"
-                  chart= {sales}
-                />
+            <MonthlyData/>
+              </MDBox>
+              </Grid>
+          </Grid>
+        </MDBox>      
+        <MDBox mb={3}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={4}>
+            <Apex />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Apex />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Apex />
+            </Grid>
+          </Grid>
+        </MDBox>
+      </MDBox>
+      <MDBox mb={3}>
+      <Grid container spacing={3}>
+          <Grid item xs={12} md={12}>
+            <FaultImpedence/>
+          </Grid>
+          {/* <Grid item xs={12} md={5}>
+              <FaultLocation />
+            </Grid> */}
+            </Grid>
+        </MDBox>
+      <MDBox mt={8}>
+        <MDBox mb={3}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} lg={12}>
+            <MDBox mb={3}>
+            <AvgPower/>
               </MDBox>
               </Grid>
           </Grid>
         </MDBox>
         <MDBox mb={3}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={7}>
-              <BillingInformation />
+            <Grid item xs={12} md={4}>
+            <Apex />
             </Grid>
-            <Grid item xs={12} md={5}>
-              <Transactions />
+            <Grid item xs={12} md={4}>
+              <Apex />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Apex />
             </Grid>
           </Grid>
         </MDBox>

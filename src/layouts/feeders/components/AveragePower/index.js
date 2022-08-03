@@ -1,72 +1,124 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+import React, { Component } from 'react';
+import Chart from "react-apexcharts";
 
-Coded by www.creative-tim.com
+class AvgPower extends Component {
+  constructor(props) {
+    super(props);
 
- =========================================================
+    this.state = {   
+      voltagedata:[], 
+      series: [{
+        name: 'Sales',
+        data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
+      }],
+      options: {
+        chart: {
+          height: 350,
+          type: 'line',
+        },
+        forecastDataPoints: {
+          count: 7
+        },
+        stroke: {
+          width: 5,
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: ['1/11/2000', '2/11/2000', '3/11/2000', '4/11/2000', '5/11/2000', '6/11/2000', '7/11/2000', '8/11/2000', '9/11/2000', '10/11/2000', '11/11/2000', '12/11/2000', '1/11/2001', '2/11/2001', '3/11/2001','4/11/2001' ,'5/11/2001' ,'6/11/2001'],
+          tickAmount: 10,
+          labels: {
+            formatter: function(value, timestamp, opts) {
+              return opts.dateFormatter(new Date(timestamp), 'dd MMM')
+            }
+          }
+        },
+        title: {
+          text: 'Forecast',
+          align: 'left',
+          style: {
+            fontSize: "16px",
+            color: '#666'
+          }
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shade: 'dark',
+            gradientToColors: [ '#FDD835'],
+            shadeIntensity: 1,
+            type: 'horizontal',
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100, 100, 100]
+          },
+        },
+        yaxis: {
+          min: -10,
+          max: 40
+        }
+      },
+    
+    
+    };
+  }
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
+componentDidMount(){
 
-// prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
 
-// @mui material components
-import Icon from "@mui/material/Icon";
 
-// Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import MDButton from "components/MDButton";
+  let result_arr_current;
 
-function Transaction({ color, icon, name, description, value }) {
+  fetch("https://changi-repo.herokuapp.com/get_changidb_data")
+  .then(res=>res.json())
+  .then ((data)=>{    
+    this.setState({voltagedata:data.temp_list})
+    console.log(data);
+    result_arr_current = data;
+
+  });
+
+  console.log (result_arr_current)
+
+
+}
+
+
+
+render() {  
+  // const {abc} =this.state
+  const {voltagedata} = this.state
+  // const {options} = this.state
+  // const {series} =this.state
+  // const {options_b} = this.state
+
   return (
-    <MDBox key={name} component="li" py={1} pr={2} mb={1}>
-      <MDBox display="flex" justifyContent="space-between" alignItems="center">
-        <MDBox display="flex" alignItems="center">
-          <MDBox mr={2}>
-            <MDButton variant="outlined" color={color} iconOnly circular>
-              <Icon sx={{ fontWeight: "bold" }}>{icon}</Icon>
-            </MDButton>
-          </MDBox>
-          <MDBox display="flex" flexDirection="column">
-            <MDTypography variant="button" fontWeight="medium" gutterBottom>
-              {name}
-            </MDTypography>
-            <MDTypography variant="caption" color="text" fontWeight="regular">
-              {description}
-            </MDTypography>
-          </MDBox>
-        </MDBox>
-        <MDTypography variant="button" color={color} fontWeight="medium" textGradient>
-          {value}
-        </MDTypography>
-      </MDBox>
-    </MDBox>
+    <div className='App'>
+
+    <h2>Feeder 1</h2>
+    {console.log(voltagedata)}
+    <h2>Average Power</h2>
+
+    <div id="chart">
+  <Chart options={this.state.options} series={this.state.series} type="line" height={350} />
+</div>
+
+    {/* <div className="row">
+          <div className="mixed-chart">
+            <Chart
+              options={options_b}
+               series={series}
+               type="boxPlot"
+               width="500"
+            />
+          </div>
+        </div> */}
+    </div>    
+
   );
 }
 
-// Typechecking props of the Transaction
-Transaction.propTypes = {
-  color: PropTypes.oneOf([
-    "primary",
-    "secondary",
-    "info",
-    "success",
-    "warning",
-    "error",
-    "light",
-    "dark",
-  ]).isRequired,
-  icon: PropTypes.node.isRequired,
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-};
-
-export default Transaction;
+}
+  
+export default AvgPower;
