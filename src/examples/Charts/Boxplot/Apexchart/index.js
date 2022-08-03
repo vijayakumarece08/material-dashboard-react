@@ -2,20 +2,20 @@
 import React, { Component } from 'react';
 import Chart from "react-apexcharts";
 
-class apex_Boxplot extends Component {
+class apexBoxplot extends Component {
 constructor (props){
   super(props);
   // let abc ;
   this.state ={
     voltagedata:[],
-    options: {
-      chart: {
-        id: "basic-bar"
-      },
-      xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-      }
-    },
+    // options: {
+    //   chart: {
+    //     id: "basic-bar"
+    //   },
+    //   xaxis: {
+    //     categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+    //   }
+    // },
     series: [
       {
       type: 'boxPlot',
@@ -40,7 +40,7 @@ constructor (props){
       }
       ],
      
-    options_b : {
+      optionsB : {
       
       chart: {
       type: 'boxPlot',
@@ -236,18 +236,18 @@ componentDidMount(){
 
 
 
-  let result_arr_current;
+  let resultArrcurrent;
 
   fetch("https://changi-repo.herokuapp.com/get_changidb_data")
   .then(res=>res.json())
   .then ((data)=>{    
     this.setState({voltagedata:data.temp_list})
     console.log(data);
-    result_arr_current = data;
+    resultArrcurrent = data;
 
   });
 
-  console.log (result_arr_current)
+  console.log (resultArrcurrent)
 //              const plot_iL1 = result_arr_current.imean_l1_list
 //              const plot_iL2 = result_arr_current.imean_l2_list
 //              const plot_iL3 = result_arr_current.imean_l3_list
@@ -274,9 +274,9 @@ componentDidMount(){
 render() {  
   // const {abc} =this.state
   const {voltagedata} = this.state
-  const {options} = this.state
+  // const {options} = this.state
   const {series} =this.state
-  const {options_b} = this.state
+  const {optionsB} = this.state
 
   return (
     <div className='App'>
@@ -289,7 +289,7 @@ render() {
     <div className="row">
           <div className="mixed-chart">
             <Chart
-              options={options_b}
+              options={optionsB}
                series={series}
                type="boxPlot"
                width="500"
@@ -305,4 +305,4 @@ render() {
 
 }
   
-export default apex_Boxplot;
+export default apexBoxplot;

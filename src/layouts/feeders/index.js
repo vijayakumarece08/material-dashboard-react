@@ -31,15 +31,15 @@ import MonthlyData from "layouts/feeders/components/MonthlyData";
 // import PaymentMethod from "layouts/billing/components/PaymentMethod";
 // import Invoices from "layouts/billing/components/Invoices";
 import FaultImpedence from "layouts/feeders/components/FaultImpedence";
-import FaultLocation from "layouts/feeders/components/FaultLocation";
+// import FaultLocation from "layouts/feeders/components/FaultLocation";
 import Apex from "examples/Charts/Boxplot/Apexchart";
 import AvgPower from "layouts/feeders/components/AveragePower"
 
 // Data
-import reportsLineChartData from "layouts/feeders/data/reportsLineChartData";
+// import reportsLineChartData from "layouts/feeders/data/reportsLineChartData";
 
 function Feeders() {
-  const { sales } = reportsLineChartData;
+  // const { sales } = reportsLineChartData;
   return (
     <DashboardLayout>
       <DashboardNavbar />
