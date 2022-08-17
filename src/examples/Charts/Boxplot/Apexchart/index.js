@@ -277,13 +277,15 @@ render() {
   // const {options} = this.state
   const {series} =this.state
   const {optionsB} = this.state
+  const feedervalue =this.props.feedervalue
+  const parameter =this.props.parameter
 
   return (
     <div className='App'>
 
-    <h2>Feeder1</h2>
+    <h2>Feeder{feedervalue}</h2>
     {console.log(voltagedata)}
-    <h2>Current(Mean)</h2>
+    <h2>{parameter}</h2>
     {/* <div id="boxplot_f1_current"></div> */}
 
     <div className="row">

@@ -32,14 +32,20 @@ import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
+import apiDataDailyChart from "layouts/dashboard/components/DailyChart/data/apiDataDailychart";
 
 // Dashboard components
 // import Projects from "layouts/dashboard/components/Projects";
 // import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
-function Dashboard() {
+function Dashboard(props) {
+  
   const { sales, tasks } = reportsLineChartData;
-
+  const {instId} =props
+  const {DailyVolt,DailyCurr,DailyPow} = apiDataDailyChart(instId);
+  {console.log("inside dashboard - insit id ")}
+  {console.log(props)}
+  // {console.log(apidataDailyVolt)}
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -107,40 +113,27 @@ function Dashboard() {
         </Grid>
         <MDBox mt={4.5}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
-                <ReportsBarChart
+            <Grid item xs={4} md={4} lg={4}>
+              <MDBox mb={1}>
+              <ReportsLineChart
                   color="info"
                   title="Voltage (Mean)"
-                  description={{
-                    line1: (
-                      <>
-                        Min Voltage: <strong>228V</strong>
-                      </>
-                    ),
-                    line2: (
-                      <>
-                        Max Voltage: <strong>238V</strong>
-                      </>
-                    ),
-                    line3: (
-                      <>
-                        Violation Count: 3 (<strong>+6%</strong>), 2 (<strong>-6%</strong>)
-                      </>
-                    ),
-                    line4: (
-                      <>
-                        Voltage THD: <strong>2.3%</strong>
-                      </>
-                    ),
-                  }}
-                  date="Updated 4 min ago"
-                  chart={reportsBarChartData}
+                  description={
+                    <>
+                    Min Voltage: <strong>228V</strong><br/>
+                    Max Voltage: <strong>238V</strong><br/>
+                    Violation Count: 3 (<strong>+6%</strong>), 2 (<strong>-6%</strong>)<br/>
+                    Voltage THD: <strong>2.3%</strong>
+                    </>
+                  }
+                  date="just updated"
+                  chart={DailyVolt}
                 />
+                
               </MDBox>
             </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
+            <Grid item xs={4} md={4} lg={4}>
+              <MDBox mb={1}>
                 <ReportsLineChart
                   color="success"
                   title="Current (Mean)"
@@ -152,12 +145,12 @@ function Dashboard() {
                     </>
                   }
                   date="updated 4 min ago"
-                  chart={sales}
+                  chart={DailyCurr}
                 />
               </MDBox>
             </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
+            <Grid item xs={4} md={4} lg={4}>
+              <MDBox mb={1}>
                 <ReportsLineChart
                   color="dark"
                   title="Power (Mean)"
@@ -169,7 +162,7 @@ function Dashboard() {
                     </>
                   }
                   date="just updated"
-                  chart={tasks}
+                  chart={DailyPow}
                 />
               </MDBox>
             </Grid>
@@ -181,7 +174,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="Kopitiam"
-                    description={<a href="/feeders"><p>Feeder 1</p> </a>}
+                    description={<a href="/feeder1"><p>Feeder 1</p> </a>}
                     value="120 kW"
                   />
             </Grid>
@@ -189,7 +182,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="Baggage"
-                    description={<a href="/feeders"><p>Feeder 2</p> </a>}
+                    description={<a href="/feeder2"><p>Feeder 2</p> </a>}
                     value="223 kW"
                   />
             </Grid>
@@ -197,7 +190,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="4Fingers"
-                    description={<a href="/feeders"><p>Feeder 3</p> </a>}
+                    description={<a href="/feeder3"><p>Feeder 3</p> </a>}
                     value="750 kW"
                   />
             </Grid>
@@ -205,7 +198,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="Load Centre"
-                    description={<a href="/feeders"><p>Feeder 4</p> </a>}
+                    description={<a href="/feeder4"><p>Feeder 4</p> </a>}
                     value="112 kW"
                   />
             </Grid>
@@ -213,7 +206,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="NA"
-                    description={<a href="/feeders"><p>Feeder 5</p> </a>}
+                    description={<a href="/feeder5"><p>Feeder 5</p> </a>}
                     value="0 kW"
                   />
             </Grid>
@@ -221,7 +214,7 @@ function Dashboard() {
             <DefaultInfoCard
                     icon="account_balance"
                     title="NA"
-                    description= {<a href="/feeders"><p>Feeder 6</p> </a>}
+                    description= {<a href="/feeder6"><p>Feeder 6</p> </a>}
                     value="0 kW"
                   />            
             </Grid>

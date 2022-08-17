@@ -33,14 +33,19 @@ import MonthlyData from "layouts/feeders/components/MonthlyData";
 import FaultImpedence from "layouts/feeders/components/FaultImpedence";
 // import FaultLocation from "layouts/feeders/components/FaultLocation";
 import Apex from "examples/Charts/Boxplot/Apexchart";
-import AvgPower from "layouts/feeders/components/AveragePower"
+import AvgPower from "layouts/feeders/components/AveragePower";
+import apiDataDailyChart from "layouts/dashboard/components/DailyChart/data/apiDataDailychart";
 
 // Data
-// import reportsLineChartData from "layouts/feeders/data/reportsLineChartData";
+import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
 
-function Feeders() {
+function Feeders(props) {
   // const { sales } = reportsLineChartData;
+  const {DailyVolt,DailyCurr,DailyPow} = apiDataDailyChart("120003");
+  const feedervalue =props.feedervalue
+
   return (
+    
     <DashboardLayout>
       <DashboardNavbar />
       {/* <DashboardNavbar absolute isMini /> */}
@@ -49,7 +54,7 @@ function Feeders() {
           <Grid container spacing={3}>
             <Grid item xs={12} lg={12}>
             <MDBox mb={3}>
-            <MonthlyData/>
+            <MonthlyData feedervalue={feedervalue}/>
               </MDBox>
               </Grid>
           </Grid>
@@ -57,13 +62,13 @@ function Feeders() {
         <MDBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
-            <Apex />
+            <Apex feedervalue={feedervalue} parameter = "Current (Mean)"/>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Apex />
+              <Apex feedervalue={feedervalue} parameter = "Power (Active)"/>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Apex />
+              <Apex feedervalue={feedervalue} parameter = "Power (Reactive)"/>
             </Grid>
           </Grid>
         </MDBox>
@@ -83,7 +88,7 @@ function Feeders() {
           <Grid container spacing={3}>
             <Grid item xs={12} lg={12}>
             <MDBox mb={3}>
-            <AvgPower/>
+            <AvgPower feedervalue={feedervalue}/>
               </MDBox>
               </Grid>
           </Grid>
@@ -91,14 +96,28 @@ function Feeders() {
         <MDBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
-            <Apex />
+            <Apex feedervalue={feedervalue} parameter = "Voltage (THD)"/>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Apex />
+              <Apex feedervalue={feedervalue} parameter = "Current (THD)"/>
             </Grid>
+           { (feedervalue==6) || (feedervalue==5 )? (
             <Grid item xs={12} md={4}>
-              <Apex />
-            </Grid>
+            <MDBox mb={1}>
+                <ReportsLineChart
+                  color="success"
+                  title="Residual Current (Mean)"
+                  description={
+                    <>
+                    <strong>Average Change</strong><br/>
+                    (<strong>15%</strong>) increase since Day 1
+                    </>
+                  }
+                  date="updated 4 min ago"
+                  chart={DailyCurr}
+                />
+              </MDBox>
+            </Grid>) :("") }
           </Grid>
         </MDBox>
       </MDBox>

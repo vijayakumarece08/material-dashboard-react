@@ -5,7 +5,7 @@ import Chart from "react-apexcharts";
 import apiDataAvgpowerChart from "layouts/feeders/data/apiDataAvgpowerChart";
 
 
-function AvgPower(props) {
+function DailyChart(props) {
   const feedervalue =props.feedervalue
   
   const { series, options } = apiDataAvgpowerChart(feedervalue);
@@ -15,7 +15,7 @@ function AvgPower(props) {
     
     <div className='App'>
     {/* <apiDataAvgpowerChart feedervalue={props.feedervalue}/> */}
-    <h2>Feeder {feedervalue}</h2>
+    <h2>Feeder 1</h2>
     <h2>Average Power</h2>
 
     <div id="chart">

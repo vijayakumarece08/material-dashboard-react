@@ -14,81 +14,116 @@ Coded by www.creative-tim.com
 */
 
 function configs(labels, datasets) {
+
+   
   return {
     data: {
       labels,
       datasets: [
         {
-          label: datasets.label,
-          tension: 0,
-          pointRadius: 5,
-          pointBorderColor: "transparent",
-          pointBackgroundColor: "rgba(255, 255, 255, .8)",
-          borderColor: "rgba(255, 255, 255, .8)",
-          borderWidth: 4,
+          label: datasets.label1,          
+          pointRadius: 1,
+          pointBorderColor: '#fbc658',
+          pointHoverRadius: 1,
+          borderColor: '#fbc658',          
           backgroundColor: "transparent",
-          fill: true,
-          data: datasets.data,
-          maxBarThickness: 6,
+          fill: false,
+          data: datasets.data1,
+          
+        },
+        {
+          label: datasets.label2,
+          pointRadius: 1,
+          pointBorderColor: '#FFA07A',
+          pointHoverRadius: 1,
+          borderColor: '#FFA07A',          
+          backgroundColor: "transparent",
+          fill: false,
+          data: datasets.data2,
+        },
+        {
+          label: datasets.label3,
+          pointRadius: 1,
+          pointBorderColor: '#51CACF',
+          pointHoverRadius: 1,
+          borderColor: '#51CACF',          
+          backgroundColor: "transparent",
+          fill: false,
+          data: datasets.data3,
+        },
+        {
+          label: datasets.label4,
+          pointRadius: 1,
+          pointBorderColor: '##FFA07A',
+          pointHoverRadius: 1,
+          borderColor: '##FFA07A',          
+          backgroundColor: "transparent",
+          fill: false,
+          data: datasets.data4,
         },
       ],
     },
+
     options: {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
         legend: {
-          display: false,
+          display: true,
         },
       },
       interaction: {
         intersect: false,
         mode: "index",
       },
+      stroke: {
+        width: 3,
+        curve: 'smooth'
+      },
       scales: {
-        y: {
-          grid: {
-            drawBorder: false,
-            display: true,
-            drawOnChartArea: true,
-            drawTicks: false,
-            borderDash: [5, 5],
-            color: "rgba(255, 255, 255, .2)",
-          },
-          ticks: {
-            display: true,
-            color: "#f8f9fa",
-            padding: 10,
-            font: {
-              size: 14,
-              weight: 300,
-              family: "Roboto",
-              style: "normal",
-              lineHeight: 2,
-            },
-          },
-        },
-        x: {
-          grid: {
-            drawBorder: false,
-            display: false,
-            drawOnChartArea: false,
-            drawTicks: false,
-            borderDash: [5, 5],
-          },
-          ticks: {
-            display: true,
-            color: "#f8f9fa",
-            padding: 10,
-            font: {
-              size: 14,
-              weight: 300,
-              family: "Roboto",
-              style: "normal",
-              lineHeight: 2,
-            },
-          },
-        },
+        // y: {
+        //   grid: {
+        //     drawBorder: false,
+        //     display: true,
+        //     drawOnChartArea: true,
+        //     drawTicks: false,
+        //     borderDash: [5, 5],
+        //     color: "rgba(255, 255, 255, .2)",
+        //   },
+        //   ticks: {
+        //     display: true,
+        //     color: "#f8f9fa",
+        //     padding: 10,
+        //     font: {
+        //       size: 14,
+        //       weight: 300,
+        //       family: "Roboto",
+        //       style: "normal",
+        //       lineHeight: 2,
+        //     },
+        //   },
+        // },
+        // x: {
+        //   grid: {
+        //     drawBorder: false,
+        //     display: false,
+        //     drawOnChartArea: false,
+        //     drawTicks: false,
+        //     borderDash: [5, 5],
+        //   },
+        //   ticks: {
+        //     display: true,
+        //     color: "#f8f9fa",
+        //     padding: 10,
+        //     font: {
+        //       size: 14,
+        //       weight: 300,
+        //       family: "Roboto",
+        //       style: "normal",
+        //       lineHeight: 2,
+        //     },
+        //   },
+        // },
       },
     },
   };
