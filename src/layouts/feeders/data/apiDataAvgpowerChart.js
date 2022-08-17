@@ -102,12 +102,15 @@ useEffect(() => {
                   opacityTo: 1,
                   stops: [0, 100,100 , 100]
                 },
-              }
+              },
               // },
-              // yaxis: {
-              //   min: -10,
-              //   max: 40
-              // }
+              yaxis: [{
+                labels: {
+                   formatter: function(val) {
+                    return val.toFixed(2);
+                  }
+               }
+              }]
             },
   };
 }

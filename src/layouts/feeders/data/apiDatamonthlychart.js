@@ -78,6 +78,13 @@ useEffect(() => {
                 type: 'datetime',
                 categories:apidata.time ,
               },
+              yaxis: [{
+                labels: {
+                   formatter: function(val) {
+                    return val.toFixed(2);
+                  }
+               }
+              }]
             },
   };
 }
