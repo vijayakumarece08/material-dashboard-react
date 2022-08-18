@@ -39,16 +39,16 @@ import Grid from "@mui/material/Grid";
 import DataTable from "examples/Tables/DataTable";
 
 // Data
-import authorsTableData from "layouts/tables/data/authorsTableData";
-import projectsTableData from "layouts/tables/data/projectsTableData";
+import impedenceData from "layouts/feeders/components/FaultImpedence/data/impedenceData";
+import faultLocation from "layouts/feeders/components/FaultImpedence/data/faultLocation";
 
 function FaultImpedence() {
-  const { columns, rows } = authorsTableData();
-  const { columns: pColumns, rows: pRows } = projectsTableData();
+  const { columns, rows } = impedenceData();
+  const { columns: pColumns, rows: pRows } = faultLocation();
 
   return (
-    <Card sx={{ height: "100%" }}>
-      <MDBox pt={6} pb={3}>
+    // <Card sx={{ height: "100%" }}>
+    //   <MDBox pt={6} pb={3}>
         <Grid container spacing={6}>
           <Grid item xs={12} md={7}>
             <Card>
@@ -105,8 +105,8 @@ function FaultImpedence() {
             </Card>
           </Grid>
         </Grid>
-      </MDBox>
-    </Card>
+      /* </MDBox>
+    </Card> */
   );
 }
 

@@ -109,7 +109,7 @@ export default function data() {
         ),
         status: (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="dark" variant="gradient" size="sm" />
+            <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
           </MDBox>
         ),
         lastupdated: (
@@ -129,7 +129,7 @@ export default function data() {
         ),
         status: (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="dark" variant="gradient" size="sm" />
+            <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
           </MDBox>
         ),
         lastupdated: (
@@ -149,7 +149,7 @@ export default function data() {
         ),
         status: (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="dark" variant="gradient" size="sm" />
+            <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
           </MDBox>
         ),
         lastupdated: (

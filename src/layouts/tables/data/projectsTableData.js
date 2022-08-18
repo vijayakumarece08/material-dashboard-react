@@ -66,7 +66,7 @@ export default function data() {
 
     rows: [
       {
-        deivces: <Project  image ={visnet} name="N-MB-9"  />,
+        deivces: <Project  image ={visnet} name="NYP-LV-1"  />,
         alaram: (
         <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
             High Voltage
@@ -84,7 +84,7 @@ export default function data() {
         ),
       },
       {
-        deivces: <Project  image ={visnet2} name="N-MB-9"  />,
+        deivces: <Project  image ={visnet2} name="NYP-LV-1"  />,
         alaram: (
         <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
             High Current {">"} 75%

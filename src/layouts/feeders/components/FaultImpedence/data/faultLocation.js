@@ -58,24 +58,24 @@ export default function data() {
 
   return {
     columns: [
-      { Header: "deivces", accessor: "deivces", align: "left" },
-      { Header: "alaram", accessor: "alaram", align: "center" },
-      { Header: "status", accessor: "status", align: "center" },
-      { Header: "datetime", accessor: "datetime", align: "center" },
+      { Header: "feeder", accessor: "deivces", align: "left" },
+      { Header: "impedence", accessor: "alaram", align: "center" },
+      { Header: "location", accessor: "status", align: "center" },
+      // { Header: "datetime", accessor: "datetime", align: "center" },
     ],
 
     rows: [
       {
-        deivces: <Project  image ={visnet} name="N-MB-9"  />,
+        deivces: <Project  image ={visnet} name="L1"  />,
         alaram: (
         <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
-            High Voltage
+            189.8
           </MDTypography>
         ),
         status: (
-          <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
-          </MDBox>
+          <MDTypography component="a" variant="caption" color="Info" fontWeight="medium">
+          38 Meters
+        </MDTypography>
         ),
         datetime: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
@@ -84,17 +84,35 @@ export default function data() {
         ),
       },
       {
-        deivces: <Project  image ={visnet2} name="N-MB-9"  />,
+        deivces: <Project  image ={visnet2} name="L2"  />,
         alaram: (
-        <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
-            High Current {">"} 75%
+          <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
+              179.2
+            </MDTypography>
+          ),
+          status: (
+            <MDTypography component="a" variant="caption" color="Info" fontWeight="medium">
+            36 Meters
+          </MDTypography>
+          ),
+        datetime: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            23/06/2022 9.35am
           </MDTypography>
         ),
-        status: (
-          <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
-          </MDBox>
-        ),
+      },
+      {
+        deivces: <Project  image ={visnet2} name="L3"  />,
+        alaram: (
+          <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
+              198.4
+            </MDTypography>
+          ),
+          status: (
+            <MDTypography component="a" variant="caption" color="Info" fontWeight="medium">
+            42 Meters
+          </MDTypography>
+          ),
         datetime: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
             23/06/2022 9.35am

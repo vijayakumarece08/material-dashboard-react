@@ -57,7 +57,7 @@ function Dashboard(props) {
                 color="dark"
                 icon="weekend"
                 title="Consumption (Monthly)"
-                count="15898 Kwh"
+                count="15898 kwh"
                 percentage={{
                   color: "success",
                   amount: "+55%",
@@ -71,7 +71,7 @@ function Dashboard(props) {
               <ComplexStatisticsCard
                 icon="leaderboard"
                 title="Energy (Cumulative)"
-                count="2,300"
+                count="126,754 kwh"
                 percentage={{
                   color: "success",
                   amount: "+3%",

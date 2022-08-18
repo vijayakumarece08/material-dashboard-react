@@ -50,26 +50,30 @@ export default function data() {
 
   return {
     columns: [
-      { Header: "devices", accessor: "devices",  align: "left" },
-      { Header: "location", accessor: "location", align: "left" },
-      { Header: "signal_strength", accessor: "signal_strength", align: "center" },
-      { Header: "status", accessor: "status", align: "center" },
-      { Header: "lastupdated", accessor: "lastupdated", align: "center" },
+      { Header: "", accessor: "devices",  align: "left" },
+      { Header: "L1", accessor: "location", align: "left" },
+      { Header: "L2", accessor: "signal_strength", align: "center" },
+      { Header: "L3", accessor: "status", align: "center" },
+      // { Header: "lastupdated", accessor: "lastupdated", align: "center" },
     ],
 
     rows: [
       {
-        devices: <Author  image ={visnet} name="N-MB-9" email="SubstationID - 120003" />,
-        location: <Job title="Changi Terminal 3" description="" />,
+        devices: <Author  image ="" name="Date" email="" />,
+        location:  (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            23/06/2022 9.35am
+          </MDTypography>
+        ),
         signal_strength: (
-        <MDTypography component="a" variant="caption" color="success" fontWeight="medium">
-            Good
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            23/06/2022 9.35am
           </MDTypography>
         ),
         status: (
-          <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
-          </MDBox>
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            23/06/2022 9.35am
+          </MDTypography>
         ),
         lastupdated: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
@@ -79,17 +83,21 @@ export default function data() {
 
       },
       {
-        devices: <Author image ={visnet2} name="NYP-LV-1" email="SubstationID - 2087740" />,
-        location: <Job title="Nanyang Polytechnic" description="" />,
+        devices: <Author  image ="" name="Impedence Value" email="" />,
+        location:  (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            189.8
+          </MDTypography>
+        ),
         signal_strength: (
-        <MDTypography component="a" variant="caption" color="success" fontWeight="medium">
-            Good
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            179.2
           </MDTypography>
         ),
         status: (
-          <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
-          </MDBox>
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            198.4
+          </MDTypography>
         ),
         lastupdated: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
@@ -100,65 +108,54 @@ export default function data() {
       },
 
       {
-        devices: <Author name="NYP-LV-2" email="SubstationID - " />,
-        location: <Job title="Nanyang Polytechnic" description="" />,
+        devices: <Author  image ="" name="Impedence Type" email="" />,
+        location:  (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            Phase
+          </MDTypography>
+        ),
         signal_strength: (
-        <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
-            Weak
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            Phase
           </MDTypography>
         ),
         status: (
-          <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="dark" variant="gradient" size="sm" />
-          </MDBox>
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            Phase
+          </MDTypography>
         ),
         lastupdated: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            23/06/2022 9.35am
+            Phase
           </MDTypography>
         ),
 
       },
       {
-        devices: <Author name="NYP-LV-3" email="SubstationID - " />,
-        location: <Job title="Nanyang Polytechnic" description="" />,
+        devices: <Author  image ="" name="Confidence Level" email="" />,
+        location:  (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            9
+          </MDTypography>
+        ),
         signal_strength: (
-        <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
-            Weak
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            9
           </MDTypography>
         ),
         status: (
-          <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="dark" variant="gradient" size="sm" />
-          </MDBox>
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            9
+          </MDTypography>
         ),
         lastupdated: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            23/06/2022 9.35am
+            9
           </MDTypography>
         ),
 
       },
-      {
-        devices: <Author name="NYP-LV-4" email="SubstationID - " />,
-        location: <Job title="Nanyang Polytechnic" description="" />,
-        signal_strength: (
-        <MDTypography component="a" variant="caption" color="error" fontWeight="medium">
-            Weak
-          </MDTypography>
-        ),
-        status: (
-          <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="dark" variant="gradient" size="sm" />
-          </MDBox>
-        ),
-        lastupdated: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            23/06/2022 9.35am
-          </MDTypography>
-        ),
-
-      },
+     
     ],
   };
 }
