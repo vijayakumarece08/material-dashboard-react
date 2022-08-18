@@ -242,7 +242,7 @@ componentDidMount(){
   .then(res=>res.json())
   .then ((data)=>{    
     this.setState({voltagedata:data.temp_list})
-    console.log(data);
+    // console.log(data);
     resultArrcurrent = data;
 
   });
@@ -388,7 +388,7 @@ render() {
     <div className='App'>
 
     <h2>Feeder {feedervalue}</h2>
-    {console.log(voltagedata)}
+    {/* {console.log(voltagedata)} */}
     <h2>{parameter}</h2>
     {/* <div id="boxplot_f1_current"></div> */}
 

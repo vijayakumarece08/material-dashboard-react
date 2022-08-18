@@ -52,7 +52,7 @@ function fetchProducts() {
   axios
     .get(volt_url) 
     .then((res) => {
-      console.log(res); 
+      // console.log(res); 
       setApidataVolt(res.data);
     })
     .catch((err) => {
@@ -61,7 +61,7 @@ function fetchProducts() {
     axios
     .get(curr_url) 
     .then((res) => {
-      console.log(res); 
+      // console.log(res); 
       setApidataCurr(res.data);
     })
     .catch((err) => {
@@ -70,7 +70,7 @@ function fetchProducts() {
     axios
     .get(pow_url) 
     .then((res) => {
-      console.log(res); 
+      // console.log(res); 
       setApidataPow(res.data);
     })
     .catch((err) => {

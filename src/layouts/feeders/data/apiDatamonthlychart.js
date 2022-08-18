@@ -28,7 +28,7 @@ function fetchProducts() {
   axios
     .get("https://changi-repo.herokuapp.com/getJsonDBData/?timerange=MONTHLY") 
     .then((res) => {
-      console.log(res); 
+      // console.log(res); 
       setApidata(res.data);
     })
     .catch((err) => {

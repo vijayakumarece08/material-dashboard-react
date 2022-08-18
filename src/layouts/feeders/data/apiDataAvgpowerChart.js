@@ -30,7 +30,7 @@ function fetchProducts() {
   axios
     .get("https://changi-repo.herokuapp.com/getJsonDBData/?timerange=AVERAGE") 
     .then((res) => {
-      console.log(res); 
+      // console.log(res); 
       setApidataAvg(res.data.avg_pow_mon);
     })
     .catch((err) => {
