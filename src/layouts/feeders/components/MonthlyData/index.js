@@ -5,7 +5,9 @@ import Chart from "react-apexcharts";
 
 function MonthlyData(props) {
   const feedervalue =props.feedervalue
-  const { apidataOne,series, options } = apiDataMonthlyChart(feedervalue);
+  const weeklyDataflag =props.weeklyDataflag
+  // {console.log({weeklyDataflag})}
+  const { apidataOne,series, options } = apiDataMonthlyChart(feedervalue,weeklyDataflag);
    
   return (
     <div className='App'>
@@ -14,6 +16,7 @@ function MonthlyData(props) {
     <h2>Current (Mean)</h2>
 
     <div id="chart">
+      
   <Chart options={options} series={series} type="line" height={350} />
 </div>
 </div>

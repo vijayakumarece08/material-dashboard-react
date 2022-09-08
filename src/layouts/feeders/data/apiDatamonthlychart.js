@@ -17,16 +17,27 @@ Coded by www.creative-tim.com
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function apiDataMonthlyChart(feedervalue) {
+export default function apiDataMonthlyChart(feedervalue,weeklyDataflag) {
   const feederListl1 = `imean_l1_F${feedervalue}_list`
   const feederListl2 = `imean_l2_F${feedervalue}_list`
   const feederListl3 = `imean_l3_F${feedervalue}_list`
   const feederListN = `imean_N_F${feedervalue}_list`
+  const flag = `${weeklyDataflag}`
+  const [dataRange, setDataRange] =useState(`WEEKLY`)
   const [apidata, setApidata] = useState([])
-
+  // {console.log(dataRange)} 
+  // {console.log(`${weeklyDataflag}`)} 
 function fetchProducts() {
+   
+  if (flag=='true') {
+    setDataRange (`WEEKLY`)
+  }
+  else {
+    setDataRange (`MONTHLY`)
+  }
+
   axios
-    .get("https://changi-repo.herokuapp.com/getJsonDBData/?timerange=MONTHLY") 
+    .get("https://changi-repo.herokuapp.com/getJsonDBData/?timerange="+`${dataRange}`) 
     .then((res) => {
       // console.log(res); 
       setApidata(res.data);
@@ -39,7 +50,7 @@ function fetchProducts() {
 
 useEffect(() => {
   fetchProducts();
-}, []);
+});
 
 
 

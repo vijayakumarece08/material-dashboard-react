@@ -35,7 +35,7 @@ import FaultImpedence from "layouts/feeders/components/FaultImpedence";
 import Apex from "examples/Charts/Boxplot/Apexchart";
 import AvgPower from "layouts/feeders/components/AveragePower";
 import apiDataDailyChart from "layouts/dashboard/components/DailyChart/data/apiDataDailychart";
-
+import { useState, useEffect } from "react";
 // Data
 import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
 
@@ -43,6 +43,11 @@ function Feeders(props) {
   // const { sales } = reportsLineChartData;
   const {DailyVolt,DailyCurr,DailyPow} = apiDataDailyChart("120003");
   const feedervalue =props.feedervalue
+  // const weeklyDataflag = true
+  const [weeklyDataflag, setFlag] = useState(true);
+  const changeDataflag = () => {
+    setFlag(!weeklyDataflag);
+  };
 
   return (
     
@@ -52,11 +57,20 @@ function Feeders(props) {
       <MDBox mt={8}>
         <MDBox mb={3}>
           <Grid container spacing={3}>
-            <Grid item xs={12} lg={12}>
-            <MDBox mb={3}>
-            <MonthlyData feedervalue={feedervalue}/>
+            <Grid item xs={12} md={2}>
+              <form>
+                <p>
+                  <input type="checkbox" onChange={changeDataflag} checked={weeklyDataflag} />
+                  {' '}
+                  Weekly Data
+                </p>
+              </form>
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <MDBox mb={3}>
+                <MonthlyData feedervalue={feedervalue} weeklyDataflag={weeklyDataflag}/>
               </MDBox>
-              </Grid>
+            </Grid>
           </Grid>
         </MDBox>      
         <MDBox mb={3}>

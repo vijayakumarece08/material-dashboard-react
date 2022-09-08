@@ -59,58 +59,84 @@ useEffect(() => {
               data : apidataAvg[`${feederListl3}`]
             }
           ],
-    options: {
-              chart: {
-                height: 350,
-                type: 'line',
-              },
-              forecastDataPoints: {
-                count: 7
-              },
-              stroke: {
-                width: 3,
-                curve: 'smooth'
-              },
-              xaxis: {
-                // type: 'datetime',
-                categories: ['Curr Month(M)','M-1','M-2','M-3','M-4','M-5','M-6'],
-                // categories:apidata.time ,
+   
+      options: {
+        chart: {
+          height: 350,
+          type: 'line',
+        },
+        forecastDataPoints: {
+          count: 7
+        },
+        stroke: {
+          width: 2,
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'text',
+          categories: ['Curr Month(M)','M-1','M-2','M-3','M-4','M-5','M-6','M-7'],
+        },
+        yaxis: [{
+          labels: {
+             formatter: function(val) {
+              return val.toFixed(2);
+            }
+         }
+        }]
+      },
+
+    //  options: {
+    //           chart: {
+    //             height: 350,
+    //             type: 'line',
+    //           },
+    //           forecastDataPoints: {
+    //             count: 7
+    //           },
+    //           stroke: {
+    //             width: 3,
+    //             curve: 'smooth'
+    //           },
+    //           xaxis: {
+    //             // type: 'datetime',
+    //             categories: ['Curr Month(M)','M-1','M-2','M-3','M-4','M-5','M-6'],
+    //             // categories:apidata.time ,
                 
-                // tickAmount: 10,
-                // labels: {
-                //   formatter: function(value, timestamp, opts) {
-                //     return opts.dateFormatter(new Date(timestamp), 'dd MMM')
-                //   }
-                // }
-              },
-              // title: {
-              //   text: 'Forecast',
-              //   align: 'left',
-              //   style: {
-              //     fontSize: "16px",
-              //     color: '#666'
-              //   }
-              // },
-              fill: {
-                type: 'gradient',
-                gradient: {
-                  shade: 'dark',
-                  gradientToColors: [ '#FDD835'],
-                  shadeIntensity: 1,
-                  type: 'horizontal',
-                  opacityFrom: 1,
-                  opacityTo: 1,
-                  stops: [0, 100,100 , 100]
-                },
-              },
-              // },
-              yaxis: [{
-                labels: {
-                   formatter: function(val) {
-                    return val.toFixed(2);
-                  }
-               }
-              }]
-            },
+    //             // tickAmount: 10,
+    //             // labels: {
+    //             //   formatter: function(value, timestamp, opts) {
+    //             //     return opts.dateFormatter(new Date(timestamp), 'dd MMM')
+    //             //   }
+    //             // }
+    //           },
+    //           // title: {
+    //           //   text: 'Forecast',
+    //           //   align: 'left',
+    //           //   style: {
+    //           //     fontSize: "16px",
+    //           //     color: '#666'
+    //           //   }
+    //           // },
+    //           // fill: {
+    //           //   type: 'gradient',
+    //           //   gradient: {
+    //           //     shade: 'dark',
+    //           //     gradientToColors: [ '#FDD835'],
+    //           //     shadeIntensity: 1,
+    //           //     type: 'horizontal',
+    //           //     opacityFrom: 1,
+    //           //     opacityTo: 1,
+    //           //     stops: [0, 100,100 , 100]
+    //           //   },
+    //           // },
+    //           // },
+    //           yaxis: [{
+    //             labels: {
+    //                formatter: function(val) {
+    //                 return val.toFixed(2);
+    //               }
+    //            }
+    //           }]
+    //         },
   };
 }
