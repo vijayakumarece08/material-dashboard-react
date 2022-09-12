@@ -14,10 +14,17 @@ Coded by www.creative-tim.com
 */
 
 // @mui material components
+// import * as React from react;
 import Grid from "@mui/material/Grid";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
+import { FormControl,FormLabel,FormControlLabel,RadioGroup,Radio} from "@mui/material";
+// import Radio from '@mui/material/Radio';
+// import RadioGroup from '@mui/material/RadioGroup';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import FormControl from '@mui/material/FormControl';
+// import FormLabel from '@mui/material/FormLabel';
 
 // Material Dashboard 2 React examples
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -26,6 +33,8 @@ import Footer from "examples/Footer";
 // import MasterCard from "examples/Cards/MasterCard";
 // import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
 import MonthlyData from "layouts/feeders/components/MonthlyData";
+import WeeklyData from "layouts/feeders/components/WeeklyData";
+import DailyData from "layouts/feeders/components/DailyData";
 // import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
 // Billing page components
 // import PaymentMethod from "layouts/billing/components/PaymentMethod";
@@ -35,19 +44,34 @@ import FaultImpedence from "layouts/feeders/components/FaultImpedence";
 import Apex from "examples/Charts/Boxplot/Apexchart";
 import AvgPower from "layouts/feeders/components/AveragePower";
 import apiDataDailyChart from "layouts/dashboard/components/DailyChart/data/apiDataDailychart";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 // Data
 import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
+
 
 function Feeders(props) {
   // const { sales } = reportsLineChartData;
   const {DailyVolt,DailyCurr,DailyPow} = apiDataDailyChart("120003");
   const feedervalue =props.feedervalue
   // const weeklyDataflag = true
-  const [weeklyDataflag, setFlag] = useState(true);
   const changeDataflag = () => {
     setFlag(!weeklyDataflag);
   };
+  const [value, setValue] = useState('Daily');
+
+  const handleChange = e => {
+    console.log(e.target.value)
+    setValue(e.target.value);
+  };
+var dataRange;
+  if (value == 'Daily') {
+      dataRange = <DailyData feedervalue={feedervalue} /> ;
+  } else if (value == 'Weekly'){
+    dataRange = <WeeklyData feedervalue={feedervalue} /> ;
+  }
+  else {
+    dataRange = <MonthlyData feedervalue={feedervalue} /> ;
+  } 
 
   return (
     
@@ -57,18 +81,26 @@ function Feeders(props) {
       <MDBox mt={8}>
         <MDBox mb={3}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={2}>
-              <form>
-                <p>
-                  <input type="checkbox" onChange={changeDataflag} checked={weeklyDataflag} />
-                  {' '}
-                  Weekly Data
-                </p>
-              </form>
+            <Grid item xs={12} md={6}>
+            <FormControl>
+              <FormLabel id="demo-row-radio-buttons-group-label">Data Range</FormLabel>
+                <RadioGroup row 
+                            aria-labelledby="demo-row-radio-buttons-group-label"
+                            defaultValue="Daily"
+                            name="row-radio-buttons-group" 
+                            value={value}
+                            onChange={handleChange}
+                            >
+                  <FormControlLabel value="Monthly" control={<Radio />} label="Monthly" />
+                  <FormControlLabel value="Weekly" control={<Radio />} label="Weekly" />
+                  <FormControlLabel value="Daily" control={<Radio />} label="Daily" />
+                </RadioGroup>
+              </FormControl>
             </Grid>
             <Grid item xs={12} md={12}>
               <MDBox mb={3}>
-                <MonthlyData feedervalue={feedervalue} weeklyDataflag={weeklyDataflag}/>
+                {/* <MonthlyData feedervalue={feedervalue} weeklyDataflag={weeklyDataflag}/>  */}
+                {dataRange}
               </MDBox>
             </Grid>
           </Grid>

@@ -5,11 +5,11 @@ import apiDataDailyChart from 'layouts/feeders/data/apiDataDailychart';
 import React from 'react';
 import Chart from "react-apexcharts";
 
-function MonthlyData(props) {
+function DailyData(props) {
   const feedervalue =props.feedervalue
   // {console.log({weeklyDataflag})}
-  // const  { apidataOne,series, options } = apiDataDailyChart(feedervalue,weeklyDataflag);
-  const  { apidataOne,series, options } = apiDataMonthlyChart(feedervalue);
+  const  { apidataOne,series, options } = apiDataDailyChart(feedervalue);
+  // const  { apidataOne,series, options } = apiDataMonthlyChart(feedervalue,weeklyDataflag);
   // const { apidataOne,series, options } = apiDataWeeklyChart(feedervalue,weeklyDataflag);
   
 
@@ -29,4 +29,4 @@ function MonthlyData(props) {
   );
 }
 
-export default MonthlyData;
+export default DailyData;
