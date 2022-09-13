@@ -1,47 +1,202 @@
 
-import React, { Component } from 'react';
-import Chart from "react-apexcharts";
+// import React, { Component, useEffect,useState } from 'react';
+// import Chart from "react-apexcharts";
+// import axios from "axios";
+ 
 
-class apexBoxplot extends Component {
-constructor (props){
-  super(props);
-  // let abc ;
-  this.state ={
-    voltagedata:[],
-    // options: {
-    //   chart: {
-    //     id: "basic-bar"
-    //   },
-    //   xaxis: {
-    //     categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-    //   }
-    // },
-    series: [
-      {
-      type: 'boxPlot',
-      data: [
-        {
-          x: 'L1',
-          y: [30, 40, 45, 50, 60]
-        },
-        {
-          x: 'L2',
-          y: [30, 40, 45, 50, 60]
-        },
-        {
-          x: 'L3',
-          y: [30, 40, 45, 50, 60]
-        },
-        {
-          x: 'N',
-          y: [30, 40, 45, 50, 60]
-        }
-      ]
-      }
-      ],
+// class apexBoxplot extends Component {
+// constructor (props){
+//   super(props);
+//   // let abc ;
+//   this.state ={
+//     voltagedata:[],
+//     series: [
+//       {
+//       type: 'boxPlot',
+//       data: [
+//         {
+//           x: 'L1',
+//           y: [30, 40, 45, 50, 60]
+//         },
+//         {
+//           x: 'L2',
+//           y: [30, 40, 45, 50, 60]
+//         },
+//         {
+//           x: 'L3',
+//           y: [30, 40, 45, 50, 60]
+//         },
+//         {
+//           x: 'N',
+//           y: [30, 40, 45, 50, 60]
+//         }
+//       ]
+//       }
+//       ],
      
-      optionsB : {
+//       optionsB : {
       
+//       chart: {
+//       type: 'boxPlot',
+//       height: 350
+//       },
+//       title: {
+//       text: 'Amps',
+//       align: 'left'
+//       },
+//       plotOptions: {
+//       boxPlot: {
+//       colors: {
+//         upper: '#fbc658',
+//         lower: '#51CACF'
+//       }
+//       }
+//       }
+//       }
+
+//   }
+//   var boxplot_data ='test';
+//   const boxplot_url = "https://changi-repo.herokuapp.com/getBoxPlotData/"
+//   axios.get(boxplot_url).then((res) => {boxplot_data=res.data;}).catch((err) => {console.log(err);});
+//   console.log (boxplot_data)
+// }
+
+
+// render() {  
+
+  
+  
+  
+//   // const {abc} =this.state
+//   const {voltagedata} = this.state
+//   // const {options} = this.state
+//   const {series} =this.state
+//   const {optionsB} = this.state
+//   const feedervalue =this.props.feedervalue
+//   const parameter =this.props.parameter
+
+//    if (parameter.includes("Current")) {
+//     if (parameter.includes("THD")) {
+//       optionsB.title.text="Percent %"
+//       series[0].data = [
+//         {
+//           x: 'L1',
+//           y: [5.76,7.26,8.09,9.57,12.67 ]
+
+//         },
+//         {
+//           x: 'L2',
+//           y: [5.69,7.45,8.4,9.55,15.95]
+//         },
+//         {
+//           x: 'L3',
+//           y: [5.25,7.57,8.44,9.36,13.09]
+//         },
+//         {
+//           x: 'N',
+//           y: [7.26,8.32,9.94,10.28,22.2]
+//         }
+//       ]
+//     }
+//     else{
+//     series[0].data = [
+//       {
+//         x: 'L1',
+//         y: [72.43, 102.70, 170.20,202.50 ,270.50 ]
+//       },
+//       {
+//         x: 'L2',
+//         y: [65.66, 105.70, 143, 169.20, 238.30]
+//       },
+//       {
+//         x: 'L3',
+//         y: [67.95, 90.05, 146, 180.2, 249.2]
+//       },
+//       {
+//         x: 'N',
+//         y: [14.51, 25.72, 38.83 , 53.85, 111.8]
+//       }
+//     ]
+//   }
+//    }
+//    else if (parameter.includes("Power")) {
+//     if (parameter.includes("Reactive")) {
+//       optionsB.title.text="VAr"
+//       series[0].data = [
+//         {
+//           x: 'L1',
+//           y: [2976.5,4840.9,5335.5,5825.6,7888.9 ]
+//         },
+//         {
+//           x: 'L2',
+//           y: [2257.9,4069.7,4652.4,5177.6,6825.9]
+//         },
+//         {
+//           x: 'L3',
+//           y: [5207.8,6960.3,7939.1,9346.3,12614]
+//         }
+//       ]
+//     }
+//     else{
+//       optionsB.title.text="Watts"
+//     series[0].data = [
+//       {
+//         x: 'L1',
+//         y: [16099,23602,39700,47360,63380]
+
+//       },
+//       {
+//         x: 'L2',
+//         y: [15159,24404,33296,39404,55890]
+//       },
+//       {
+//         x: 'L3',
+//         y: [14657,20175,33473,41723,57727]
+//       }
+//     ]
+//   }
+//    }
+//    else   {
+//     optionsB.title.text="Volts"
+//     series[0].data = [
+//       {
+//         x: 'L1',
+//         y: [232.47,235.95,236.55,237.31,239.62 ]
+//       },
+//       {
+//         x: 'L2',
+//         y: [232.71,236.34,236.9,237.6,239.86]
+//       },
+//       {
+//         x: 'L3',
+//         y: [233.74,237.45,238,238.66,240.83]
+//       }
+      
+      
+      
+//     ]
+//   }
+
+
+   
+//   return 
+// }
+
+// }
+  
+// export default apexBoxplot;
+
+
+import React, { Component, useEffect,useState } from 'react';
+import Chart from "react-apexcharts";
+import axios from "axios";
+
+export default function apexBoxplotData(props) {
+  // instId="120003"
+
+    var voltagedata=[]
+    
+    var optionsB = {
       chart: {
       type: 'boxPlot',
       height: 350
@@ -60,225 +215,86 @@ constructor (props){
       }
       }
 
+  const [boxplot_data, setboxplot_data] = useState([]); 
+  var parent_url = 'https://changi-repo.herokuapp.com';
+  var instId= 120003;
+  let boxplot_url = parent_url + "/getBoxPlotData/?instrumentid=" + instId;
+
+function fetchProducts() {
+  axios.get(boxplot_url).then((res) => {setboxplot_data(res.data);}).catch((err) => {console.log(err);});
+}
+
+useEffect(() => {
+  fetchProducts();
+}, []);
+
+const feedervalue =props.feedervalue
+const parameter =props.parameter
+const datarange =props.datarange
+
+const curr_data = boxplot_data.current_mean_weekly
+const volt_data = boxplot_data.voltage_weekly
+const pow_data = boxplot_data.power_weekly  
+
+if (datarange == 'Monthly'){
+  const curr_data = boxplot_data.current_mean_monthly  
+  const pow_data = boxplot_data.power_monthly  
+  const volt_data = boxplot_data.voltage_monthly
+}
+
+
+  const ifeederListl1 = `imean_l1_F${feedervalue}_list`
+  const ifeederListl2 = `imean_l2_F${feedervalue}_list`
+  const ifeederListl3 = `imean_l3_F${feedervalue}_list`
+  const ifeederListN = `imean_N_F${feedervalue}_list`
+  const ifeederListl1_thd = `ithd_l1_F${feedervalue}_list` 
+  const ifeederListl2_thd = `ithd_l2_F${feedervalue}_list`
+  const ifeederListl3_thd = `ithd_l3_F${feedervalue}_list`
+  const ifeederListN_thd = `ithd_N_F${feedervalue}_list`
+
+  var iListl1 =''
+  var iListl2 =''
+  var iListl3 =''
+  var iListN =''
+  var iListl1_thd =''
+  var iListl2_thd =''
+  var iListl3_thd =''
+  var iListN_thd =''
+
+  if (curr_data){
+    iListl1 = curr_data[`${ifeederListl1}`]
+    iListl2 = curr_data[`${ifeederListl2}`]
+    iListl3 = curr_data[`${ifeederListl3}`]
+    iListN = curr_data[`${ifeederListN}`]
+    iListl1_thd = curr_data[`${ifeederListl1_thd}`]
+    iListl2_thd = curr_data[`${ifeederListl2_thd}`]
+    iListl3_thd = curr_data[`${ifeederListl3_thd}`]
+    iListN_thd = curr_data[`${ifeederListN_thd}`]
   }
-}
 
-componentDidMount(){
-
-  
-//   Array.prototype.range = function() {
-
-//     var min = null,
-//         max = null,
-//         i, len;
-
-//     for (i = 0, len = this.length; i < len; ++i)
-//     {
-//         var elem = this[i];
-//         if (min === null || min > elem) min = elem;
-//         if (max === null || max < elem) max = elem;
-//     }
-
-//     return { min: min, max: max }
-// };
-
-// function getMin(array){
-//     var range = array.range();
-//     return range.min;
-// }
-
-// function getMax(array){
-//     var range = array.range();
-//     return range.max;
-// }
-// function Median(data) {
-//   return Quartile_50(data);
-// }
-
-// function Quartile_25(data) {
-//   return Quartile(data, 0.25);
-// }
-
-// function Quartile_50(data) {
-//   return Quartile(data, 0.5);
-// }
-
-// function Quartile_75(data) {
-//   return Quartile(data, 0.75);
-// }
-
-// function Quartile(data, q) {
-//   data=Array_Sort_Numbers(data);
-//   var pos = ((data.length) - 1) * q;
-//   var base = Math.floor(pos);
-//   var rest = pos - base;
-//   if( (data[base+1]!==undefined) ) {
-//     return data[base] + rest * (data[base+1] - data[base]);
-//   } else {
-//     return data[base];
-//   }
-// }
-
-// function Array_Sort_Numbers(inputarray){
-//   return inputarray.sort(function(a, b) {
-//     return a - b;
-//   });
-// }
-
-// function Array_Sum(t){
-//    return t.reduce(function(a, b) { return a + b; }, 0);
-// }
-
-// function Array_Average(data) {
-//   return Array_Sum(data) / data.length;
-// }
-
-
-
-
-//   // feeders = {
-//     function fn_boxchart(list1,list2,list3,list4,id){
-// let chart_pact
-// let el_pow
-//     let options = {
-// series: [
-// {
-// type: 'boxPlot',
-// data: [
-//   {
-//     x: 'L1',
-//     y: list1
-//   },
-//   {
-//     x: 'L2',
-//     y: list2
-//   },
-//   {
-//     x: 'L3',
-//     y: list3
-//   },
-//   {
-//     x: 'N',
-//     y: list4
-//   }
-// ]
-// }
-// ],
-// chart: {
-// type: 'boxPlot',
-// height: 350
-// },
-// title: {
-// text: 'Amps',
-// align: 'left'
-// },
-// plotOptions: {
-// boxPlot: {
-// colors: {
-//   upper: '#fbc658',
-//   lower: '#51CACF'
-// }
-// }
-// }
-// };
-// if (id.includes("power")) {
-//     options.title.text = "Watts";
-//     options.series[0].data.pop()
-//      el_pow = document.querySelector(id);
-//     if (el_pow != null) {
-//      if (chart_pact) {
-//         chart_pact.destroy()
-//     }
-//     chart_pact = new ApexCharts(document.querySelector(id), options);
-//     chart_pact.render()
-// }
-// }
-
-// if (id.includes("voltage")) {
-//     options.title.text = "Volts";
-//     options.series[0].data.pop()
-//     let el_volt = document.querySelector(id);
-//     if (el_volt != null) {
-//      if (chart_volt) {
-//         chart_volt.destroy()
-//     }
-//     chart_volt = new ApexCharts(document.querySelector(id), options);
-//     chart_volt.render()
-// }
-// }
-
-// if (id.includes("current")) {
-// var el_curr = document.querySelector(id);
-// if (el_curr != null) {
-//     if (chart_curr) {
-//         chart_curr.destroy()
-//     }
-//     chart_curr = new ApexCharts(document.querySelector(id), options);
-//     chart_curr.render()
-// }
-// }
-// }
-
-  // $.ajax({
-  //   type: "GET",
-  //   url: "https://changi-repo.herokuapp.com/get_changidb_pdata/",
-  //   cache: false,
-  //   async: false,
-  //   headers: {
-  //       "accept": "application/json"
-  //   },
-  //   success: function (data) {
-  //       result_arr = data;
-  
-  //   }
-  // });
-
-
-
-
-  let resultArrcurrent;
-
-  fetch("https://changi-repo.herokuapp.com/get_changidb_data")
-  .then(res=>res.json())
-  .then ((data)=>{    
-    this.setState({voltagedata:data.temp_list})
-    // console.log(data);
-    resultArrcurrent = data;
-
-  });
-
-  console.log (resultArrcurrent)
-//              const plot_iL1 = result_arr_current.imean_l1_list
-//              const plot_iL2 = result_arr_current.imean_l2_list
-//              const plot_iL3 = result_arr_current.imean_l3_list
-//              const plot_iN = result_arr_current.imean_N_list
-
-//              let list_plot_iL1
-//              let list_plot_iL2
-//              let list_plot_iL3
-//              let list_plot_iN
-
-// if (plot_iL1   === undefined || plot_iL1  .length > 0) {list_plot_iL1   =  [getMin(plot_iL1 .slice()).toFixed(2),Quartile_25(plot_iL1 .slice()).toFixed(2),Quartile_50(plot_iL1 .slice()).toFixed(2),Quartile_75(plot_iL1 .slice()).toFixed(2),getMax(plot_iL1 .slice()).toFixed(2)]}
-// if (plot_iL2   === undefined || plot_iL2  .length > 0) {list_plot_iL2   =  [getMin(plot_iL2 .slice()).toFixed(2),Quartile_25(plot_iL2 .slice()).toFixed(2),Quartile_50(plot_iL2 .slice()).toFixed(2),Quartile_75(plot_iL2 .slice()).toFixed(2),getMax(plot_iL2 .slice()).toFixed(2)]}
-// if (plot_iL3   === undefined || plot_iL3  .length > 0) {list_plot_iL3   =  [getMin(plot_iL3 .slice()).toFixed(2),Quartile_25(plot_iL3 .slice()).toFixed(2),Quartile_50(plot_iL3 .slice()).toFixed(2),Quartile_75(plot_iL3 .slice()).toFixed(2),getMax(plot_iL3 .slice()).toFixed(2)]}
-// if (plot_iN   === undefined || plot_iN  .length > 0) {list_plot_iN   =  [getMin(plot_iN .slice()).toFixed(2),Quartile_25(plot_iN .slice()).toFixed(2),Quartile_50(plot_iN .slice()).toFixed(2),Quartile_75(plot_iN .slice()).toFixed(2),getMax(plot_iN .slice()).toFixed(2)]}
-
-  // fn_boxchart([1,2,3,4,5,], [1,2,3,4,5,], [1,2,3,4,5,], [1,2,3,4,5,], "#boxplot_f1_current")
-
-
-
-}
-
-
-
-render() {  
-  // const {abc} =this.state
-  const {voltagedata} = this.state
-  // const {options} = this.state
-  const {series} =this.state
-  const {optionsB} = this.state
-  const feedervalue =this.props.feedervalue
-  const parameter =this.props.parameter
+  var series= [
+    {
+    type: 'boxPlot',
+    data: [
+      {
+        x: 'L1',
+        y: [30, 40, 45, 50, 60]
+      },
+      {
+        x: 'L2',
+        y: [30, 40, 45, 50, 60]
+      },
+      {
+        x: 'L3',
+        y: [30, 40, 45, 50, 60]
+      },
+      {
+        x: 'N',
+        y: [30, 40, 45, 50, 60]
+      }
+    ]
+    }
+    ]
 
    if (parameter.includes("Current")) {
     if (parameter.includes("THD")) {
@@ -286,20 +302,20 @@ render() {
       series[0].data = [
         {
           x: 'L1',
-          y: [5.76,7.26,8.09,9.57,12.67 ]
+          y: iListl1_thd
 
         },
         {
           x: 'L2',
-          y: [5.69,7.45,8.4,9.55,15.95]
+          y: iListl2_thd
         },
         {
           x: 'L3',
-          y: [5.25,7.57,8.44,9.36,13.09]
+          y: iListl3_thd
         },
         {
           x: 'N',
-          y: [7.26,8.32,9.94,10.28,22.2]
+          y: iListN_thd
         }
       ]
     }
@@ -307,19 +323,19 @@ render() {
     series[0].data = [
       {
         x: 'L1',
-        y: [72.43, 102.70, 170.20,202.50 ,270.50 ]
+        y: iListl1
       },
       {
         x: 'L2',
-        y: [65.66, 105.70, 143, 169.20, 238.30]
+        y: iListl2
       },
       {
         x: 'L3',
-        y: [67.95, 90.05, 146, 180.2, 249.2]
+        y: iListl3
       },
       {
         x: 'N',
-        y: [14.51, 25.72, 38.83 , 53.85, 111.8]
+        y: iListN
       }
     ]
   }
@@ -383,32 +399,30 @@ render() {
   }
 
 
-   
+
   return (
-    <div className='App'>
 
-    <h2>Feeder {feedervalue}</h2>
-    {/* {console.log(voltagedata)} */}
-    <h2>{parameter}</h2>
-    {/* <div id="boxplot_f1_current"></div> */}
-
-    <div className="row">
-          <div className="mixed-chart">
-            <Chart
-              options={optionsB}
-               series={series}
-               type="boxPlot"
-               width="500"
-            />
-          </div>
-        </div>
-
-    </div>
+      <div className='App'>
+  
+      <h2>Feeder {feedervalue}</h2>
+      {/* {console.log(voltagedata)} */}
+      <h2>{parameter}</h2>
+      {/* <div id="boxplot_f1_current"></div> */}
+  
+      <div className="row">
+            <div className="mixed-chart">
+              <Chart
+                options={optionsB}
+                 series={series}
+                 type="boxPlot"
+                 width="500"
+              />
+            </div>
+       </div>
+  
+      </div>
+      
+  
     
-
   );
 }
-
-}
-  
-export default apexBoxplot;

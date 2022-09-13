@@ -116,13 +116,13 @@ var dataRange;
         <MDBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
-            <Apex feedervalue={feedervalue} parameter = "Current (Mean)"/>
+            <Apex feedervalue={feedervalue} parameter = "Current (Mean)" datarange ={value} />
             </Grid>
             <Grid item xs={12} md={4}>
-              <Apex feedervalue={feedervalue} parameter = "Power (Active)"/>
+              <Apex feedervalue={feedervalue} parameter = "Power (Active)" datarange ={value}/>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Apex feedervalue={feedervalue} parameter = "Power (Reactive)"/>
+              <Apex feedervalue={feedervalue} parameter = "Power (Reactive)" datarange ={value}/>
             </Grid>
           </Grid>
         </MDBox>
