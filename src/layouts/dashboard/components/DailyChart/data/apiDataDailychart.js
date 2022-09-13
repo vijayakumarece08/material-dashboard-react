@@ -58,7 +58,7 @@ function fetchProducts() {
     .catch((err) => {
       console.log(err);
     });
-    axios
+  axios
     .get(curr_url) 
     .then((res) => {
       // console.log(res); 
@@ -67,7 +67,7 @@ function fetchProducts() {
     .catch((err) => {
       console.log(err);
     });
-    axios
+   axios
     .get(pow_url) 
     .then((res) => {
       // console.log(res); 
@@ -76,6 +76,7 @@ function fetchProducts() {
     .catch((err) => {
       console.log(err);
     });
+
 }
 
 
@@ -83,13 +84,11 @@ useEffect(() => {
   fetchProducts();
 }, []);
 
-
-
   return {
-
     apidataDailyVolt:apidataDailyVolt,
     apidataDailyCurr:apidataDailyCurr,
     apidataDailyPow:apidataDailyPow,
+    latesttemp:apidataDailyVolt.temp_list,
     DailyCurr: {
       labels: apidataDailyCurr.time,
       datasets: { 
@@ -124,8 +123,7 @@ useEffect(() => {
         data2: apidataDailyPow.pactive_l2_list,
         label3: "L3", 
         data3: apidataDailyPow.pactive_l3_list
-      },
-      
+      },      
     },
   };
 }

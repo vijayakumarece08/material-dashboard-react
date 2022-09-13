@@ -25,7 +25,7 @@ function DailyChart(props) {
   );
 }
 
-export default AvgPower;
+export default DailyChart;
 
 
 

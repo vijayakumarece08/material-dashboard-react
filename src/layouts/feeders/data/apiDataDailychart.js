@@ -17,7 +17,7 @@ Coded by www.creative-tim.com
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function apiDataWeeklyChart(feedervalue) {
+export default function apiDataDailyChart(feedervalue) {
   const feederListl1 = `imean_l1_F${feedervalue}_list`
   const feederListl2 = `imean_l2_F${feedervalue}_list`
   const feederListl3 = `imean_l3_F${feedervalue}_list`

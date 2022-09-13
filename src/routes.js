@@ -92,7 +92,7 @@ const routes = [
     component: <Dashboard instId="nyplv3" />,
   },
   {
-    type: "collapse",
+    type: "redirect",
     name: "MULTIPLOT",
     key: "multiplot",
     icon: <Icon fontSize="small">dashboard</Icon>,
@@ -108,7 +108,7 @@ const routes = [
     component: <Notifications />,
   },
   {
-    type: "collapse",
+    type: "dummy",
     name: "Sign In",
     key: "sign-in",
     icon: <Icon fontSize="small">login</Icon>,
@@ -116,7 +116,7 @@ const routes = [
     component: <SignIn />,
   },
   {
-    type: "collapse",
+    type: "dummy",
     name: "Sign Up",
     key: "sign-up",
     icon: <Icon fontSize="small">assignment</Icon>,

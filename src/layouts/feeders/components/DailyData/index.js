@@ -12,8 +12,8 @@ function DailyData(props) {
   // const  { apidataOne,series, options } = apiDataMonthlyChart(feedervalue,weeklyDataflag);
   // const { apidataOne,series, options } = apiDataWeeklyChart(feedervalue,weeklyDataflag);
   
-
-
+ 
+ 
    
   return (
     <div className='App'>

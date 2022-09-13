@@ -30,8 +30,8 @@ import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatist
 import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
 
 // Data
-import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
+import apiCalculationData from "layouts/dashboard/components/DailyChart/data/apiCalculationData";
 import apiDataDailyChart from "layouts/dashboard/components/DailyChart/data/apiDataDailychart";
 
 // Dashboard components
@@ -42,10 +42,53 @@ function Dashboard(props) {
   
   const { sales, tasks } = reportsLineChartData;
   const {instId} =props
-  const {DailyVolt,DailyCurr,DailyPow} = apiDataDailyChart(instId);
+  const {DailyVolt,DailyCurr,DailyPow,latesttemp} = apiDataDailyChart(instId);
+  var latesttempval;
+  if (latesttemp){
+    latesttempval =latesttemp.slice(-1)[0]
+  }
+
+
+  const {consumpMonthly,consumpCumu,powerFactor,voltParam, CurrParm, PowParm,feederEnergy} = apiCalculationData(instId);
+
+ 
+  var vmin='';
+  var vmax='';
+  var vthd='';
+  var vcount=[];
+
+  if (voltParam.min_voltage){ vmin = voltParam.min_voltage}
+  if (voltParam.max_voltage){vmax = voltParam.max_voltage}
+  if (voltParam.voltage_THD){vthd = voltParam.voltage_THD}    
+  if (voltParam.violation_count){vcount =voltParam.violation_count.split(" ")}
+  
+  var curmax;
+  var curmaxDate;
+  if (CurrParm.max_current){
+    curmax =CurrParm.max_current.split(" ")[0]
+    curmaxDate= CurrParm.max_current.split("A ")[1]
+  }
+  var rampup_per;
+  var rampup_date;
+  var rampdown_per;
+  var rampdown_date;
+  var pmax;
+  if (PowParm){
+    pmax=PowParm.max_power
+  if (PowParm.max_ramp_up){
+    rampup_per =PowParm.max_ramp_up.split(" ")[0]
+    rampup_date= PowParm.max_ramp_up.split("% ")[1]
+  }
+  if (PowParm.max_ramp_down){
+    rampdown_per =PowParm.max_ramp_down.split(" ")[0]
+    rampdown_date= PowParm.max_ramp_down.split("% ")[1]
+  }
+}
+
   {console.log("inside dashboard - insit id ")}
   {console.log(props)}
   // {console.log(apidataDailyVolt)}
+
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -57,11 +100,11 @@ function Dashboard(props) {
                 color="dark"
                 icon="weekend"
                 title="Consumption (Monthly)"
-                count="15898 kwh"
+                count={consumpMonthly.energy_monthly}
                 percentage={{
                   color: "success",
-                  amount: "+55%",
-                  label: "than lask week",
+                  amount: consumpMonthly.percentage,
+                  label: "of last month (remainng 20 days)",
                 }}
               />
             </MDBox>
@@ -71,10 +114,10 @@ function Dashboard(props) {
               <ComplexStatisticsCard
                 icon="leaderboard"
                 title="Energy (Cumulative)"
-                count="126,754 kwh"
+                count={consumpCumu.energy_cumulative}
                 percentage={{
                   color: "success",
-                  amount: "+3%",
+                  amount: consumpCumu.percentage,
                   label: "than last month",
                 }}
               />
@@ -86,10 +129,10 @@ function Dashboard(props) {
                 color="success"
                 icon="store"
                 title="Power factor"
-                count="0.97"
+                count={powerFactor.power_factor}
                 percentage={{
                   color: "success",
-                  amount: "+1%",
+                  amount: powerFactor.percentage,
                   label: "than yesterday",
                 }}
               />
@@ -101,11 +144,11 @@ function Dashboard(props) {
                 color="primary"
                 icon="person_add"
                 title="Temperature"
-                count="28C"
+                count={latesttempval}
                 percentage={{
                   color: "success",
                   amount: "",
-                  label: "Just updated",
+                  // label: "Just updated",
                 }}
               />
             </MDBox>
@@ -113,17 +156,17 @@ function Dashboard(props) {
         </Grid>
         <MDBox mt={4.5}>
           <Grid container spacing={3}>
-            <Grid item xs={4} md={4} lg={4}>
-              <MDBox mb={1}>
+            <Grid item xs={4} md={4} lg={4}>            
+              <MDBox mb={1}>                
               <ReportsLineChart
                   color="info"
                   title="Voltage (Mean)"
                   description={
                     <>
-                    Min Voltage: <strong>228V</strong><br/>
-                    Max Voltage: <strong>238V</strong><br/>
-                    Violation Count: 3 (<strong>+6%</strong>), 2 (<strong>-6%</strong>)<br/>
-                    Voltage THD: <strong>2.3%</strong>
+                    Min Voltage: <strong>{vmin}</strong><br/>
+                    Max Voltage: <strong>{vmax}</strong><br/>
+                    Violation Count: {vcount[0]} <strong>{vcount[1]}</strong> {vcount[2]} <strong>{vcount[3]}</strong><br/>
+                    Voltage THD: <strong>{vthd}</strong>
                     </>
                   }
                   date="just updated"
@@ -139,12 +182,12 @@ function Dashboard(props) {
                   title="Current (Mean)"
                   description={
                     <>
-                      (<strong>65%</strong>) of rated current <br/>
-                      Max Current: <strong>720A</strong> @ Jun-28 09:40-09:50 <br/>
-                      Current THD: <strong>7.5%</strong>
+                      (<strong>{CurrParm.rate_current}</strong>) of rated current <br/>
+                      Max Current: <strong>{curmax}</strong>{curmaxDate}<br/>
+                      Current THD: <strong>{CurrParm.current_THD}</strong>
                     </>
                   }
-                  date="updated 4 min ago"
+                  // date="updated 4 min ago"
                   chart={DailyCurr}
                 />
               </MDBox>
@@ -156,12 +199,12 @@ function Dashboard(props) {
                   title="Power (Mean)"
                   description={
                     <>                  
-                      Max Power: <strong>165kW</strong>  <br/>
-                      Max Ramp Up: <strong>17%</strong> (L1) @ Jun-28 09:40-09:50<br/>
-                      Max Ramp Down: <strong>21%</strong> (L2) @ Jun-28 09:40-09:50
+                      Max Power: <strong>{pmax}</strong>  <br/>
+                      Max Ramp Up: <strong>{rampup_per}</strong> {rampup_date}<br/>
+                      Max Ramp Down: <strong>{rampdown_per}</strong> {rampdown_date}
                     </>
                   }
-                  date="just updated"
+                  // date="just updated"
                   chart={DailyPow}
                 />
               </MDBox>
@@ -175,7 +218,7 @@ function Dashboard(props) {
                     icon="account_balance"
                     title="Kopitiam"
                     description={<a href="/feeder1"><p>Feeder 1</p> </a>}
-                    value="120 kW"
+                    value={feederEnergy.feeder_1}
                   />
             </Grid>
             <Grid item xs={12} md={6} lg={2}>
@@ -183,7 +226,7 @@ function Dashboard(props) {
                     icon="account_balance"
                     title="Baggage"
                     description={<a href="/feeder2"><p>Feeder 2</p> </a>}
-                    value="223 kW"
+                    value={feederEnergy.feeder_2}
                   />
             </Grid>
             <Grid item xs={12} md={6} lg={2}>
@@ -191,7 +234,7 @@ function Dashboard(props) {
                     icon="account_balance"
                     title="4Fingers"
                     description={<a href="/feeder3"><p>Feeder 3</p> </a>}
-                    value="750 kW"
+                    value={feederEnergy.feeder_3}
                   />
             </Grid>
             <Grid item xs={12} md={6} lg={2}>
@@ -199,7 +242,7 @@ function Dashboard(props) {
                     icon="account_balance"
                     title="Load Centre"
                     description={<a href="/feeder4"><p>Feeder 4</p> </a>}
-                    value="112 kW"
+                    value={feederEnergy.feeder_4}
                   />
             </Grid>
             <Grid item xs={12} md={6} lg={2}>

@@ -43,17 +43,25 @@ import FaultImpedence from "layouts/feeders/components/FaultImpedence";
 // import FaultLocation from "layouts/feeders/components/FaultLocation";
 import Apex from "examples/Charts/Boxplot/Apexchart";
 import AvgPower from "layouts/feeders/components/AveragePower";
-import apiDataDailyChart from "layouts/dashboard/components/DailyChart/data/apiDataDailychart";
+// import apiDataDailyChart from "layouts/dashboard/components/DailyChart/data/apiDataDailychart";
+import apiDataDailyChart from "layouts/feeders/data/apiDataDailychart";
 import { useState } from "react";
 // Data
 import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
-
+import Chart from "react-apexcharts";
 
 function Feeders(props) {
-  // const { sales } = reportsLineChartData;
-  const {DailyVolt,DailyCurr,DailyPow} = apiDataDailyChart("120003");
+  // const { sales } = reportsLineChartData;  
   const feedervalue =props.feedervalue
-  // const weeklyDataflag = true
+  var feedervalue_residual =5;
+  if (feedervalue==1 || feedervalue==3 || feedervalue==5) {
+    feedervalue_residual =5
+  }
+  if (feedervalue==1 || feedervalue==3 || feedervalue==6) {
+    feedervalue_residual = 6
+  }
+  const {apidataOne,series, options} = apiDataDailyChart(feedervalue_residual);
+    // const weeklyDataflag = true
   const changeDataflag = () => {
     setFlag(!weeklyDataflag);
   };
@@ -147,10 +155,10 @@ var dataRange;
             <Grid item xs={12} md={4}>
               <Apex feedervalue={feedervalue} parameter = "Current (THD)"/>
             </Grid>
-           { (feedervalue==6) || (feedervalue==5 )? (
+           
             <Grid item xs={12} md={4}>
             <MDBox mb={1}>
-                <ReportsLineChart
+                {/* <ReportsLineChart
                   color="success"
                   title="Residual Current (Mean)"
                   description={
@@ -160,10 +168,11 @@ var dataRange;
                     </>
                   }
                   date="updated 4 min ago"
-                  chart={DailyCurr}
-                />
+                  chart = {DailyCurr}                     
+                /> */}
+                <Chart options={options} series={[series[0]]} type="line" height={350} />
               </MDBox>
-            </Grid>) :("") }
+            </Grid>
           </Grid>
         </MDBox>
       </MDBox>
