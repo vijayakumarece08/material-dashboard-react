@@ -109,7 +109,7 @@ function Dashboard(props) {
                 percentage={{
                   color: "success",
                   amount: consumpMonthly.percentage,
-                  label: `of last month (remainng ${days} days)`,
+                  label: `of last month (remaining ${days} days)`,
                 }}
               />
             </MDBox>
