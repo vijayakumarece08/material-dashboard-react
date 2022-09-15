@@ -37,6 +37,7 @@ Coded by www.creative-tim.com
 
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
+import Multiplot from "layouts/multiplot"
 import Tables from "layouts/tables";
 // import Billing from "layouts/billing";
 import Feeders from "layouts/feeders";
@@ -45,7 +46,7 @@ import Notifications from "layouts/notifications";
 // import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
-
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 // @mui icons
 import Icon from "@mui/material/Icon";
 
@@ -92,12 +93,12 @@ const routes = [
     component: <Dashboard instId="nyplv3" />,
   },
   {
-    type: "redirect",
+    type: "collapse",
     name: "MULTIPLOT",
     key: "multiplot",
     icon: <Icon fontSize="small">dashboard</Icon>,
-    route: "/Multi-Plot",
-    component: <Dashboard instId="multiplot" />,
+    route: "/multiplot/",
+    component: <Multiplot/>,
   },
   {
     type: "collapse",

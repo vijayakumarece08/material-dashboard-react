@@ -150,10 +150,10 @@ var dataRange;
         <MDBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
-            <Apex feedervalue={feedervalue} parameter = "Voltage (THD)"/>
+            <Apex feedervalue={feedervalue} parameter = "Voltage (THD)" datarange ={value}/>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Apex feedervalue={feedervalue} parameter = "Current (THD)"/>
+              <Apex feedervalue={feedervalue} parameter = "Current (THD)" datarange ={value}/>
             </Grid>
            
             <Grid item xs={12} md={4}>

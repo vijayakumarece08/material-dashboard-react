@@ -116,9 +116,12 @@ export default function App() {
       }
 
       if (route.route) {
+        console.log(route.route)
         return <Route exact path={route.route} element={route.component} key={route.key} />;
       }
-
+      // if (route.route =="/multiplot/"){
+      //   <Route exact path={route.route} element={<Navigate to= "https://changi-repo.herokuapp.com/multiplot/"/>} key={route.key}  />;
+      // }
       return null;
     });
 
