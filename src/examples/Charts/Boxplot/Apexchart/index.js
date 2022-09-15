@@ -257,6 +257,19 @@ if (datarange == 'Monthly'){
   const ifeederListl3_thd = `ithd_l3_F${feedervalue}_list`
   const ifeederListN_thd = `ithd_N_F${feedervalue}_list`
 
+  const pfeederListl1 = `pactive_l1_F${feedervalue}_list` 
+  const pfeederListl2 = `pactive_l2_F${feedervalue}_list`
+  const pfeederListl3 = `pactive_l3_F${feedervalue}_list`
+  
+  const prfeederListl1 = `preactive_l1_F${feedervalue}_list` 
+  const prfeederListl2 = `preactive_l2_F${feedervalue}_list`
+  const prfeederListl3 = `preactive_l3_F${feedervalue}_list`
+  
+  const vfeederListl1_thd = `vthd_l1_list` 
+  const vfeederListl2_thd = `vthd_l2_list`
+  const vfeederListl3_thd = `vthd_l3_list`
+  
+
   var iListl1 =''
   var iListl2 =''
   var iListl3 =''
@@ -265,6 +278,18 @@ if (datarange == 'Monthly'){
   var iListl2_thd =''
   var iListl3_thd =''
   var iListN_thd =''
+
+  var pListl1 =''
+  var pListl2 =''
+  var pListl3 =''
+  var prListl1 =''
+  var prListl2 =''
+  var prListl3 =''
+  
+  var vListl1_thd =''
+  var vListl2_thd =''
+  var vListl3_thd =''
+  
 
   if (curr_data){
     iListl1 = curr_data[`${ifeederListl1}`].map(function(each_element){return Number(each_element.toFixed(2));})
@@ -276,6 +301,26 @@ if (datarange == 'Monthly'){
     iListl3_thd = curr_data[`${ifeederListl3_thd}`].map(function(each_element){return Number(each_element.toFixed(2));})
     iListN_thd = curr_data[`${ifeederListN_thd}`].map(function(each_element){return Number(each_element.toFixed(2));})
   }
+
+  if (pow_data){
+    pListl1 = pow_data[`${pfeederListl1}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    pListl2 = pow_data[`${pfeederListl2}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    pListl3 = pow_data[`${pfeederListl3}`].map(function(each_element){return Number(each_element.toFixed(2));})
+
+    prListl1 = pow_data[`${prfeederListl1}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    prListl2 = pow_data[`${prfeederListl2}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    prListl3 = pow_data[`${prfeederListl3}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    
+  }
+  if (volt_data){
+    
+    vListl1_thd = volt_data[`${vfeederListl1_thd}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    vListl2_thd = volt_data[`${vfeederListl2_thd}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    vListl3_thd = volt_data[`${vfeederListl3_thd}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    
+  }
+
+  
 
   var series= [
     {
@@ -351,15 +396,15 @@ if (datarange == 'Monthly'){
       series[0].data = [
         {
           x: 'L1',
-          y: [2976.5,4840.9,5335.5,5825.6,7888.9 ]
+          y: pListl1
         },
         {
           x: 'L2',
-          y: [2257.9,4069.7,4652.4,5177.6,6825.9]
+          y: pListl2
         },
         {
           x: 'L3',
-          y: [5207.8,6960.3,7939.1,9346.3,12614]
+          y: pListl3
         }
       ]
     }
@@ -368,16 +413,15 @@ if (datarange == 'Monthly'){
     series[0].data = [
       {
         x: 'L1',
-        y: [16099,23602,39700,47360,63380]
-
+        y: prListl1
       },
       {
         x: 'L2',
-        y: [15159,24404,33296,39404,55890]
+        y: prListl2
       },
       {
         x: 'L3',
-        y: [14657,20175,33473,41723,57727]
+        y: prListl3
       }
     ]
   }
@@ -388,16 +432,16 @@ if (datarange == 'Monthly'){
       series[0].data = [
         {
           x: 'L1',
-          y: iListl1_thd
+          y: vListl1_thd
 
         },
         {
           x: 'L2',
-          y: iListl2_thd
+          y: vListl2_thd
         },
         {
           x: 'L3',
-          y: iListl3_thd
+          y: vListl3_thd
         },
        
       ]
