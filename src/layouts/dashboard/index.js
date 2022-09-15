@@ -52,6 +52,7 @@ function Dashboard(props) {
   const {consumpMonthly,consumpCumu,powerFactor,voltParam, CurrParm, PowParm,feederEnergy} = apiCalculationData(instId);
 
  
+  var days = consumpMonthly.remaining_days
   var vmin='';
   var vmax='';
   var vthd='';
@@ -73,8 +74,10 @@ function Dashboard(props) {
   var rampdown_per;
   var rampdown_date;
   var pmax;
+  var tload;
   if (PowParm){
     pmax=PowParm.max_power
+    tload =PowParm.transformer_loading
   if (PowParm.max_ramp_up){
     rampup_per =PowParm.max_ramp_up.split(" ")[0]
     rampup_date= PowParm.max_ramp_up.split("% ")[1]
@@ -83,6 +86,8 @@ function Dashboard(props) {
     rampdown_per =PowParm.max_ramp_down.split(" ")[0]
     rampdown_date= PowParm.max_ramp_down.split("% ")[1]
   }
+
+  
 }
 
   {console.log("inside dashboard - insit id ")}
@@ -104,7 +109,7 @@ function Dashboard(props) {
                 percentage={{
                   color: "success",
                   amount: consumpMonthly.percentage,
-                  label: "of last month (remainng 20 days)",
+                  label: `of last month (remainng ${days} days)`,
                 }}
               />
             </MDBox>
@@ -169,7 +174,7 @@ function Dashboard(props) {
                     Voltage THD: <strong>{vthd}</strong>
                     </>
                   }
-                  date="just updated"
+                  // date="just updated"
                   chart={DailyVolt}
                 />
                 
@@ -184,7 +189,7 @@ function Dashboard(props) {
                     <>
                       (<strong>{CurrParm.rate_current}</strong>) of rated current <br/>
                       Max Current: <strong>{curmax}</strong>{curmaxDate}<br/>
-                      Current THD: <strong>{CurrParm.current_THD}</strong>
+                      Current THD: <strong>{CurrParm.current_THD}</strong><br/><br/>
                     </>
                   }
                   // date="updated 4 min ago"
@@ -198,7 +203,8 @@ function Dashboard(props) {
                   color="dark"
                   title="Power (Mean)"
                   description={
-                    <>                  
+                    <>             
+                      Transfromer Loading : <strong>{tload}</strong>  <br/>    
                       Max Power: <strong>{pmax}</strong>  <br/>
                       Max Ramp Up: <strong>{rampup_per}</strong> {rampup_date}<br/>
                       Max Ramp Down: <strong>{rampdown_per}</strong> {rampdown_date}

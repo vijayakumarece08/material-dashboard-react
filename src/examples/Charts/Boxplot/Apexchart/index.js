@@ -221,13 +221,18 @@ export default function apexBoxplotData(props) {
   let boxplot_url = parent_url + "/getBoxPlotData/?instrumentid=" + instId;
 
 function fetchProducts() {
-  axios.get(boxplot_url).then((res) => {setboxplot_data(res.data);}).catch((err) => {console.log(err);});
+  axios.get(boxplot_url).then((res) => {setboxplot_data((res.data))}).catch((err) => {console.log(err);});
+
+ 
 }
+
 
 useEffect(() => {
   fetchProducts();
+  
 }, []);
 
+console.log(boxplot_data)
 const feedervalue =props.feedervalue
 const parameter =props.parameter
 const datarange =props.datarange
@@ -262,14 +267,14 @@ if (datarange == 'Monthly'){
   var iListN_thd =''
 
   if (curr_data){
-    iListl1 = curr_data[`${ifeederListl1}`]
-    iListl2 = curr_data[`${ifeederListl2}`]
-    iListl3 = curr_data[`${ifeederListl3}`]
-    iListN = curr_data[`${ifeederListN}`]
-    iListl1_thd = curr_data[`${ifeederListl1_thd}`]
-    iListl2_thd = curr_data[`${ifeederListl2_thd}`]
-    iListl3_thd = curr_data[`${ifeederListl3_thd}`]
-    iListN_thd = curr_data[`${ifeederListN_thd}`]
+    iListl1 = curr_data[`${ifeederListl1}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    iListl2 = curr_data[`${ifeederListl2}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    iListl3 = curr_data[`${ifeederListl3}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    iListN = curr_data[`${ifeederListN}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    iListl1_thd = curr_data[`${ifeederListl1_thd}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    iListl2_thd = curr_data[`${ifeederListl2_thd}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    iListl3_thd = curr_data[`${ifeederListl3_thd}`].map(function(each_element){return Number(each_element.toFixed(2));})
+    iListN_thd = curr_data[`${ifeederListN_thd}`].map(function(each_element){return Number(each_element.toFixed(2));})
   }
 
   var series= [
@@ -377,26 +382,44 @@ if (datarange == 'Monthly'){
     ]
   }
    }
-   else   {
-    optionsB.title.text="Volts"
+   else if (parameter.includes("Voltage")) {
+    if (parameter.includes("THD")) {
+      optionsB.title.text="Percent %"
+      series[0].data = [
+        {
+          x: 'L1',
+          y: iListl1_thd
+
+        },
+        {
+          x: 'L2',
+          y: iListl2_thd
+        },
+        {
+          x: 'L3',
+          y: iListl3_thd
+        },
+       
+      ]
+  }
+  else{
     series[0].data = [
       {
         x: 'L1',
-        y: [232.47,235.95,236.55,237.31,239.62 ]
+        y: iListl1
       },
       {
         x: 'L2',
-        y: [232.71,236.34,236.9,237.6,239.86]
+        y: iListl2
       },
       {
         x: 'L3',
-        y: [233.74,237.45,238,238.66,240.83]
-      }
-      
-      
-      
+        y: iListl3
+      },
+    
     ]
   }
+}
 
 
 

@@ -68,7 +68,7 @@ useEffect(() => {
               chart: {
                 height: 350,
                 type: 'line',
-              },
+              },              
               forecastDataPoints: {
                 count: 7
               },

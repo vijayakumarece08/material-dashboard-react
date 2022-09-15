@@ -61,6 +61,14 @@ function Feeders(props) {
     feedervalue_residual = 6
   }
   const {apidataOne,series, options} = apiDataDailyChart(feedervalue_residual);
+  var dictoptions =options;
+  dictoptions["plugins"]= {
+                            title: {
+                              display: true,
+                              text: 'Residual Current (Mean)'
+                                    }
+                            }
+
     // const weeklyDataflag = true
   const changeDataflag = () => {
     setFlag(!weeklyDataflag);
@@ -170,7 +178,8 @@ var dataRange;
                   date="updated 4 min ago"
                   chart = {DailyCurr}                     
                 /> */}
-                <Chart options={options} series={[series[0]]} type="line" height={350} />
+                <h2>Residual Current (Mean)</h2>
+                <Chart options={dictoptions} series={[series[0]]} type="line" height={350} />
               </MDBox>
             </Grid>
           </Grid>
@@ -182,3 +191,4 @@ var dataRange;
 }
 
 export default Feeders;
+
